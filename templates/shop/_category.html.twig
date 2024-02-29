@@ -1,0 +1,51 @@
+<div class="container my-3 mx-auto">
+
+    {% if category.children|length > 0 %}
+        <div class="row">
+            {% include 'components/_categoriesTree.html.twig' %}
+            <h1 class="category-title mx-auto">{{ category.name }}</h1>
+            <p class="category-description mx-auto">{{ category.description }}</p>
+        </div>
+        <div class="row subcategory-links justify-content-around g-3 flex-wrap mb-3 text-center">
+            {% for child in category.children %}
+                <div class="col-auto mx-auto">
+                    <a class="text-center link-text btn-f9b4bc rounded-pill fw-bold text-white py-2" href="{{ child.slug }}">
+                        {{ child.name }}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+{#        Pour chaque sous-catégorie#}
+        {% for child in category.children %}
+{#            On récupère les produits lui appartenant ainsi qu'à ses propres descendants#}
+            {% set filteredProducts = products|filter(p => p.category == child or p.category.isDescendantOf(child)) %}
+            {% if filteredProducts|length > 0 %}
+                {% include 'components/_textband.html.twig' with {'background': '#f9b4bc', 'color': 'white', 'text': child.name} %}
+{#                Et on en affiche 10 aléatoires grace au filtre créé dans App/Twig/ShuffleExtension#}
+                {% set randomProducts = filteredProducts|shuffle|slice(0,10) %}
+                {% include 'shop/slider/_productsslider.html.twig' with {'products': randomProducts} %}
+            {% endif %}
+        {% endfor %}
+
+    {#    Sinon on affiche le menu pour parcourir les produits ainsi que son menu lateral#}
+    {% else %}
+        <div class="row">
+            <div class="col-12 mt-3 mx-auto">
+                {% include 'components/_categoriesTree.html.twig' %}
+                <div class="row">
+                    <h1 class="category-title">{{ category.name }}</h1>
+                    <p>{{ category.description }}</p>
+                </div>
+                {% include 'shop/_filtersCat.html.twig' %}
+                {% if products %}
+                    {% for product in products %}
+                        {% include 'shop/_productcard.html.twig' with {'product': product} %}
+                    {% endfor %}
+                {% else %}
+                    <p>Pas de produits à afficher.</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+</div>

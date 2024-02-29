@@ -1,0 +1,15 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Modifier un type de variation{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>Modifier un type de variation</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_product_option_index') }}">Retour à la liste</a>
+    </div>
+    <div class="row py-3">
+        {{ include('product_option/_form.html.twig', {'button_label': 'Modifier'}) }}
+    </div>
+{% endblock %}

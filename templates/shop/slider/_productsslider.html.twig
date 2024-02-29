@@ -1,0 +1,7 @@
+<div class="container-fluid d-flex justify-content-center py-3">
+    <div class="products_carousel my-3 py-3 w-75">
+    {% for product in products %}
+        {% include 'shop/slider/_slidercard.html.twig' with {'product': product} %}
+    {% endfor %}
+    </div>
+</div>

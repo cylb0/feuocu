@@ -1,0 +1,32 @@
+<?php //76d643e1d9c9dd4d35fb83e5f32a9937
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleTableDeleteUpdateExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleTableDeleteUpdateExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            'sqlExecutor' => [
+                $o[1],
+            ],
+            'resultSetMapping' => [
+                $o[2],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'UPDATE hero SET active = 0',
+            ],
+        ],
+        'stdClass' => [
+            'isSelect' => [
+                2 => false,
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

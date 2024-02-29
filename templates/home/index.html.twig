@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}feuOcu !{% endblock %}
+
+{% block body %}
+    {% if hero %}
+        {% include 'components/_hero.html.twig' with {'hero': hero} %}
+    {% else %}
+        {% include 'components/_flashmessages.html.twig' %}
+    {% endif %}
+    {% include 'components/_infos.html.twig' %}
+{% endblock %}

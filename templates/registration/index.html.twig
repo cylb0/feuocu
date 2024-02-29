@@ -1,0 +1,99 @@
+{% extends 'basenav.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container register mt-2 mb-2">
+    {% include 'components/_flashmessages.html.twig' %}
+    <div class="row">
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            {% if label == 'success' %}
+                <div class="alert alert-success">
+            {% elseif label == 'error'%}
+                <div class="alert alert-danger">
+            {% else %}
+                <div class="alert alert-info">
+            {% endif %}
+            {{ message }}
+                </div>
+        {% endfor %}
+    {% endfor %}
+
+        </div>
+
+        <div class="row">
+            <h1 class="register_title text-center mt-0 mb-2 fs-2">Créer un compte</h1>
+        </div>
+
+        {{ form_start(form) }}
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
+            <div class="col-12 col-md-6">
+                {{ form_label(form.emailConfirm) }}
+                {{ form_widget(form.emailConfirm) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                {{ form_label(form.password) }}
+                {{ form_widget(form.password) }}
+            </div>
+            <div class="col-12 col-md-6">
+                {{ form_label(form.passwordConfirm) }}
+                {{ form_widget(form.passwordConfirm) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                {{ form_label(form.first_name) }}
+                {{ form_widget(form.first_name) }}
+            </div>
+            <div class="col-12 col-md-6">
+                {{ form_label(form.last_name) }}
+                {{ form_widget(form.last_name) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                {{ form_label(form.birth) }}
+                {{ form_widget(form.birth) }}
+            </div>
+            <div class="col-12 col-md-6">
+                {{ form_label(form.phone) }}
+                {{ form_widget(form.phone) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{ form_label(form.address) }}
+                {{ form_widget(form.address) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                {{ form_label(form.zipcode) }}
+                {{ form_widget(form.zipcode) }}
+            </div>
+            <div class="col-12 col-md-6">
+                {{ form_label(form.city) }}
+                {{ form_widget(form.city) }}
+            </div>
+        </div>
+        <div class="row">
+            {{ form_widget(form.submit) }}
+        </div>
+
+        {{ form_end(form) }}
+
+        <div class="row text-center">
+            <p class="col-12 font-weight-bold mt-4 fs-5">Vous êtes déjà client ?</p>
+            <a class="col-12 mb-3" href="{{ path('app_login') }}">Connectez-vous !</a>
+        </div>
+
+    </div>
+{% endblock %}

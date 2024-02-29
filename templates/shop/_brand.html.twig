@@ -1,0 +1,14 @@
+{% block header %}
+    <div class="container mt-3 mx-auto">
+        <div class="d-flex align-items-center gap-3">
+            <img class="d-inline-block mb-2" src="{{ asset('images/' ~ brand.image.path)| imagine_filter('brand_logo') }}" style="max-width: 100px;">
+            <h1 class="d-inline-block">{{ brand.name }}</h1>
+        </div>
+        <div>
+        {% include 'shop/_filtersBrand.html.twig' %}
+        {% for product in products %}
+            {% include 'shop/_productcard.html.twig' with {'product': product} %}
+        {% endfor %}
+        </div>
+    </div>
+{% endblock%}

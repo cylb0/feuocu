@@ -1,0 +1,77 @@
+<?php //7aac189122ef2db701e4db06ca7e8a50
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            'sqlExecutor' => [
+                $o[1],
+            ],
+            'resultSetMapping' => [
+                $o[2],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT c0_.id AS id_0, c0_.name AS name_1, c0_.slug AS slug_2, c0_.description AS description_3, c0_.parent_id AS parent_id_4, c0_.image_id AS image_id_5 FROM category c0_ WHERE c0_.parent_id IS NOT NULL AND (SELECT COUNT(*) FROM category c1_ WHERE c1_.parent_id = c0_.id) = 0',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'c' => 'App\\Entity\\Category',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'name_1' => 'name',
+                    'slug_2' => 'slug',
+                    'description_3' => 'description',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'parent_id_4' => 'integer',
+                    'image_id_5' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'c' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'parent_id_4' => 'parent_id',
+                    'image_id_5' => 'image_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'c',
+                    'name_1' => 'c',
+                    'slug_2' => 'c',
+                    'description_3' => 'c',
+                    'parent_id_4' => 'c',
+                    'image_id_5' => 'c',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Category',
+                    'name_1' => 'App\\Entity\\Category',
+                    'slug_2' => 'App\\Entity\\Category',
+                    'description_3' => 'App\\Entity\\Category',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

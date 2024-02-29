@@ -1,0 +1,54 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>Utilisateurs</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_user_new') }}">Ajouter un nouvel utilisateur</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th class="d-none d-md-table-cell">Prénom</th>
+                <th class="d-none d-md-table-cell">Nom</th>
+                <th class="d-none d-md-table-cell">Date de naissance</th>
+                <th class="d-none d-md-table-cell">Téléphone</th>
+                <th class="d-none d-md-table-cell">Créé le</th>
+                <th class="d-none d-md-table-cell">Validé ?</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles is not empty and ('ROLE_SUPER_ADMIN' in user.roles or 'ROLE_ADMIN' in user.roles) ? 'Administrateur' : 'Utilisateur' }}</td>
+                    <td class="d-none d-md-table-cell">{{ user.firstName|capitalize }}</td>
+                    <td class="d-none d-md-table-cell">{{ user.lastName|capitalize }}</td>
+                    <td class="d-none d-md-table-cell">{{ user.birth ? user.birth|date('Y-m-d') : '' }}</td>
+                    <td class="d-none d-md-table-cell">{{ user.phone }}</td>
+                    <td class="d-none d-md-table-cell">{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td class="d-none d-md-table-cell">{{ user.isValidated ? 'Oui' : 'Non' }}</td>
+                    <td>
+                        <a href="{{ path('app_user_show', {'id': user.id}) }}">Voir</a>
+                        <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+                        {{ include('user/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="14">Aucun utilisateur</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

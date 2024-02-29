@@ -1,0 +1,74 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Variants{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>Variants de {{ product.name }}</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_product_index') }}">Retour à la liste</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="d-none d-md-table-cell">Id</th>
+                <th>Code</th>
+                <th>Impact sur le prix</th>
+                <th>Prix Total</th>
+                <th>Quantité</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for productVariant in product.productVariants %}
+                <tr>
+                    <td class="d-none d-md-table-cell">{{ productVariant.id }}</td>
+                    <td>{{ productVariant.code }}</td>
+                    <td>
+                        {% if not product.simpleProduct %}
+                        <input
+                                type="text"
+                                name="admin-variant-price"
+                                data-controller="admin-product-variant-price"
+                                data-variant-id="{{ productVariant.id }}"
+                                value="{{ productVariant.price ? productVariant.price : '' }}"
+                                style="width: 50px;">€
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div name="admin-total-price" data-base-price="{{ product.price }}">
+                            {{ productVariant.price ?
+                            ((productVariant.price + product.price) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') ) :
+                            (product.price | number_format(2, '.', ',') | format_currency('EUR', locale='fr') ) }}
+                        </div>
+                    </td>
+                    <td>
+                        <input
+                                type="number"
+                                name="admin-stock"
+                                data-controller="admin-product-variant-stock"
+                                data-variant-id="{{ productVariant.id }}"
+                                value="{{ productVariant.stock }}"
+                                min="0"
+                                style="width: 50px;">
+                    </td>
+                    <td>
+                        <form method="post" action="{{ path('app_product_delete_variant', {'id': product.id, 'variantId': productVariant.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette entrée ?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ productVariant.getId()) }}">
+                            <button class="btn">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="row" data-controller="admin-product-variant-options">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ button_label|default('Ajouter / Réinitialiser les variants') }}</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

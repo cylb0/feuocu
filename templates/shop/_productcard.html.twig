@@ -1,0 +1,111 @@
+{% block header %}
+    <div class="product_card row justify-content-center mb-3">
+        <div>
+            <div class="card shadow-0 rounded-3 bg-white">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0 d-flex justify-content-center">
+                            <div class="bg-image rounded">
+                                {% if product.discount %}
+                                    <div class="position-absolute bg-fd2048 text-white fw-bold rounded-3 p-2">
+                                        {% if product.discount.type == 'percentage' %}
+                                            {{ '-' ~ product.discount.value ~ '%' }}
+                                        {% else %}
+                                            {{ '-' ~ product.discount.value ~ '€' }}
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+
+                                {% set images = product.images %}
+                                {% if images|length > 0 %}
+                                    {% set image = images[0] %}
+                                {% else %}
+                                    {% set image = {path: 'products/default.png', alt: 'Image par defaut'} %}
+                                {% endif %}
+                                <img
+                                    src="{{ asset('images/' ~ image.path) | imagine_filter('medium') }}"
+                                    alt="{{ image.alt }}"
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                            <h5>{{ product.name|capitalize }}</h5>
+                            <a class="brand-link text-decoration-none" href="{{ path('show_brand', {'slug': product.brand.slug}) }}">
+                                <h6>{{ product.brand.name }}</h6>
+                            </a>
+                            <div class="d-flex flex-row">
+                                <div class="text-danger mb-1 me-2">
+                                {% include 'components/_starcomponent.html.twig' with {'note': product.rating} %}
+                                </div>
+                                {% if product.rating %}
+                                    <span>({{ product.rating }})</span>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% for feature in product.features %}
+                                    <span class="small text-muted">{{ feature.name }}</span>
+                                    {% if not loop.last %}
+                                        <span class="text-muted">&#8226;</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <p class="text-truncate mb-4 mb-md-0">
+                                {{ product.description}}
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                            <div class="d-flex flex-row align-items-center mb-1">
+                                {% if product.productVariants|length > 0 and product.isInStock %}
+                                    {% if product.productVariants|length > 1 %}
+                                        <span class="me-1">A partir de </span>
+                                    {% endif %}
+                                    {% if product.discount %}
+                                        {% if product.discount.type == 'percentage' %}
+                                            <h4 class="me-1">{{ (product.price * (100 - product.discount.value) / 100) | round(2) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</h4>
+                                            <span class="text-danger me-1"><s>{{ product.price | round(2) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</s></span>
+                                        {% else %}
+                                            {% if product.price - product.discount.value > 0 %}
+                                                <h4 class="me-1">{{ (product.price - product.discount.value) | round(2) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</h4>
+                                            {% else %}
+                                                <h4 class="me-1">0€ OMG!</h4>
+                                            {% endif %}
+                                            <span class="text-danger me-1"><s>{{ product.price | round(2) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</s></span>
+                                        {% endif %}
+                                    {% else %}
+                                        <h4 class="me-1">{{ product.price | round(2) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</h4>
+                                    {% endif %}
+                                {% else %}
+                                    <i class="bi bi-dash-circle text-fd2048 me-2"></i><span class="text-fd2048">Indisponible</span>
+                                {% endif %}
+                            </div>
+                            <div class="d-flex flex-column mb-1">
+                                <div class="available-colors d-flex my-1 gap-1">
+                                    {% if product.isInStock %}
+                                        {% set colorValues = [] %}
+                                        {% for variant in product.productVariants %}
+                                            {% if variant.stock > 0 %}
+                                                {% for variantOption in variant.productVariantOptions %}
+                                                    {% if variantOption.option.type == 'color' %}
+                                                        {% if variantOption.value.value not in colorValues %}
+                                                            <span class="available-color" style="background-color: {{ variantOption.value.hexacode }}; border: 1px solid lightgray"></span>
+                                                            {% set colorValues = colorValues|merge([variantOption.value.value]) %}
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <a class="d-block text-center btn-f9b4bc rounded fw-bold text-white p-1 w-100" href="{{ path('show_product', {'slug': product.slug}) }}">
+                                    <span>Voir plus</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

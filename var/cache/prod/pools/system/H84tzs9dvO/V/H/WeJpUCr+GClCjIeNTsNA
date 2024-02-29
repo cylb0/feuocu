@@ -1,0 +1,63 @@
+<?php //507be2cfaf55b5d00d550f2249336b14
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            'sqlExecutor' => [
+                $o[1],
+            ],
+            'resultSetMapping' => [
+                $o[2],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT d0_.id AS id_0, d0_.code AS code_1, d0_.type AS type_2, d0_.value AS value_3 FROM discount d0_',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'e' => 'App\\Entity\\Discount',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'code_1' => 'code',
+                    'type_2' => 'type',
+                    'value_3' => 'value',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'e' => null,
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'e',
+                    'code_1' => 'e',
+                    'type_2' => 'e',
+                    'value_3' => 'e',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Discount',
+                    'code_1' => 'App\\Entity\\Discount',
+                    'type_2' => 'App\\Entity\\Discount',
+                    'value_3' => 'App\\Entity\\Discount',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

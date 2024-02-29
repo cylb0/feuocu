@@ -1,0 +1,66 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Utilisateur{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>{{ user.email }}</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_user_index') }}">Retour à la liste</a>
+        <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles is not empty and ('ROLE_SUPER_ADMIN' in user.roles or 'ROLE_ADMIN' in user.roles) ? 'Administrateur' : 'Utilisateur' }}</td>            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ user.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <td>{{ user.birth ? user.birth|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ user.address }}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ user.zipcode }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ user.city }}</td>
+            </tr>
+            <tr>
+                <th>Téléphone</th>
+                <td>{{ user.phone }}</td>
+            </tr>
+            <tr>
+                <th>Créé le</th>
+                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Validé ?</th>
+                <td>{{ user.isValidated ? 'Compte validé' : 'Compte non validé' }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

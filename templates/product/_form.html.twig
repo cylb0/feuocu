@@ -1,0 +1,43 @@
+{{ form_start(form) }}
+
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+
+    {{ form_label(form.category) }}
+    {{ form_widget(form.category) }}
+
+    {{ form_label(form.brand) }}
+    {{ form_widget(form.brand) }}
+
+    {{ form_label(form.images) }}
+    {{ form_widget(form.images) }}
+
+    {{ form_label(form.features) }}
+    {{ form_widget(form.features) }}
+
+    {{ form_label(form.feature1) }}
+    {{ form_widget(form.feature1) }}
+
+    {{ form_label(form.feature2) }}
+    {{ form_widget(form.feature2) }}
+
+    {{ form_label(form.feature3) }}
+    {{ form_widget(form.feature3) }}
+
+    {{ form_label(form.short_description) }}
+    {{ form_widget(form.short_description) }}
+
+    {{ form_label(form.description) }}
+    {{ form_widget(form.description) }}
+
+    {{ form_label(form.price) }}
+    {{ form_widget(form.price) }}
+
+    {{ form_label(form.rating) }}
+    {{ form_widget(form.rating) }}
+
+    {{ form_label(form.discount) }}
+    {{ form_widget(form.discount) }}
+
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,37 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}{{ product_option_value.value }}{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>{{ product_option_value.value }}</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_product_option_value_index') }}">Retour à la liste</a>
+        <a href="{{ path('app_product_option_value_edit', {'id': product_option_value.id}) }}">Modifier</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product_option_value.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom de l'option</th>
+                <td>{{ product_option_value.value }}</td>
+            </tr>
+            <tr>
+                <th>Couleur</th>
+                <td>
+                    {% if product_option_value.hexacode %}
+                        <span style="display: block; height: 100%; width: 25%; border: 1px solid lightgray; background-color: {{ product_option_value.hexacode }}">&nbsp;</span>
+                    {% else %}
+                        Pas une couleur
+                    {% endif %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

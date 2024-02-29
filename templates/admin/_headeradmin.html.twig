@@ -1,0 +1,27 @@
+<div class="container-fluid bg-dark shadow-lg position-fixed top-0 left-0" style="height: 50px; z-index: 999;">
+    <div class="row align-items-center justify-content-between p-1 my-1">
+        <div class="col-4 col-md-2 d-flex text-center me-auto">
+            <a href="{{ path('app_admin') }}">
+                <img src="{{ asset('images/logo.png') }}" class="img-fluid" style="min-width: 60px; max-height: 30px;">
+            </a>
+            <div class="d-block d-lg-none text-white ps-3" data-action="click->admin-toggle-sidebar#toggle">
+                <i class="bi bi-list text-white fs-3"></i>
+            </div>
+        </div>
+        <div class="col-4 col-md-6 text-center">
+            <span style="font-size: 16px; color: white; letter-spacing: 5px;">Administration</span>
+        </div>
+        <div class="col-4 col-md-2 text-center ms-auto">
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{{ path('app_home') }}" class="d-flex flex-column align-items-center text-white text-decoration-none smaller">
+                    <img src="{{ asset('images/icons/www.png') }}" alt="icône vers le site" class="mr-2" style="width: 1.8rem; height: 1.8rem;">
+                    <span class="d-none">Vers le site</span>
+                </a>
+                <a href="{{ path('app_logout') }}" class="d-flex flex-column align-items-center text-white text-decoration-none smaller">
+                    <img src="{{ asset('images/icons/logout.png') }}" alt="icône déconnexion" class="mr-2" style="width: 1.8rem; height: 1.8rem;">
+                    <span class="d-none">Déconnexion</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

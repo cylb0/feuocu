@@ -1,0 +1,15 @@
+{{ form_start(form, { 'attr': { 'data-controller': 'admin-hexacode-toggle' }}) }}
+
+    {{ form_label(form.option) }}
+    {{ form_widget(form.option, { 'attr': { 'data-admin-hexacode-toggle-target': 'select', 'data-action': 'admin-hexacode-toggle#update' }}) }}
+
+    {{ form_label(form.value) }}
+    {{ form_widget(form.value) }}
+
+    <div data-admin-hexacode-toggle-target="hexadiv">
+        {{ form_label(form.hexacode) }}
+        {{ form_widget(form.hexacode) }}
+    </div>
+
+<button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

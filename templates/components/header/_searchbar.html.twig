@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center align-items-center">
+    <form
+        class="form-inline text-center"
+        action="{{ path('search_products') }}"
+        method="GET">
+        <div class="form-group mx-sm-3 align-self-center">
+            <input type="text" class="form-control" name="searchInput" placeholder="Rechercher un produit">
+        </div>
+        <button type="submit" class="btn align-self-center search-button" data-mdb-ripple-duration = 0>
+            <span class="search-icon-circle">
+                <img class="search-icon" src="{{ asset('images/icons/search.png') }}" alt="Search Icon">
+            </span>
+        </button>
+    </form>
+</div>

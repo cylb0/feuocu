@@ -1,0 +1,104 @@
+<div id="sidebar-wrap" class="d-none">
+    <div class="sidebar-categories col-12 col-md-4 text-black position-absolute bg-white min-vh-100"
+        style="z-index: 999;">
+        <div class="d-flex justify-content-between align-items-center bg-dark p-3">
+            <a class="mb-2" href="{{ path('app_home') }}">
+                <img class="logo-image img-fluid"
+                    src="{{ asset('images/logo.png') }}"
+                    alt="Logo Header"
+                    style="max-width: 120px;">
+            </a>
+            <i class="bi bi-x me-3 fa-lg text-white" data-action="click->toggle-sidebar-categories#toggle"></i>
+        </div>
+        <ul class="d-block list-unstyled bg-white px-3">
+            {% if app.user %}
+                <li>
+                    <a href="{{ path('app_profile') }}" class="text-decoration-none d-flex justify-content-between border-bottom align-items-center my-auto px-3">
+                        <div class="d-block d-md-none sidebar-login d-flex gap-3 align-items-center my-3">
+                            <img src="{{ asset('images/icons/user-pink.png') }}"
+                                 alt="icône profil"
+                                 style="max-height: 50px">
+                            <h3 class="category-header text-f46a79 fw-bold">Mon compte</h3>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_logout') }}" class="text-decoration-none d-flex justify-content-between border-bottom align-items-center my-auto px-3">
+                        <div class="d-block d-md-none sidebar-login d-flex gap-3 align-items-center my-3">
+                            <img src="{{ asset('images/icons/logout-pink.png') }}"
+                                 alt="icône déconnexion"
+                                 style="max-height: 50px">
+                            <h3 class="category-header text-f46a79 fw-bold">Déconnexion</h3>
+                        </div>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ path('app_login') }}" class="text-decoration-none d-flex justify-content-between border-bottom align-items-center my-auto px-3">
+                        <div class="d-block d-md-none sidebar-login d-flex gap-3 align-items-center my-3">
+                            <img src="{{ asset('images/icons/login-pink.png') }}"
+                                 alt="icône connexion"
+                                 style="max-height: 50px">
+                            <h3 class="category-header text-f46a79 fw-bold">Connexion</h3>
+                        </div>
+                    </a>
+                </li>
+            {% endif %}
+            <li>
+                <a href="{{ path('app_cart') }}" class="text-decoration-none d-flex justify-content-between border-bottom align-items-center my-auto px-3">
+                    <div class="d-block d-md-none sidebar-login d-flex gap-3 align-items-center my-3">
+                        <img src="{{ asset('images/icons/cart-pink.png') }}"
+                             alt="icône panier"
+                             style="max-height: 50px">
+                        <h3 class="category-header text-f46a79 fw-bold">Panier</h3>
+                    </div>
+                </a>
+            </li>
+            {% for category in categories %}
+                <li>
+                    <div class="main-category d-flex justify-content-between border-bottom align-items-center my-auto px-3"
+                         data-target="{{ 'subcategory' ~ category.name }}">
+                        <div class="d-flex gap-3 align-items-center my-3">
+                            <img src="{{ asset('images/' ~ category.image.path) }}"
+                                alt="{{ category.image.alt }}"
+                                style="max-height: 50px">
+                            <h3 class="category-header text-f46a79 fw-bold">{{ category.name }}</h3>
+                        </div>
+                        <i class="bi bi-caret-right align-self-center text-fd2048"></i>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="sidebar-overlay"
+         class="position-fixed top-0 start-0 w-100 h-100 bg-white opacity-50"
+         data-action="click->toggle-sidebar-categories#toggle click->toggle-sidebar-categories#hide"
+         style="z-index: 1;">
+    </div>
+</div>
+
+{% for category in categories %}
+    <div id ="{{ 'subcategory' ~ category.name }}"
+         class="child-category col-12 col-md-4 text-black position-absolute bg-white min-vh-100 d-none px-3"
+         data-controller="toggle-subcategory"
+         style="z-index: 999;">
+        <div class="d-flex align-items-center my-3 gap-3 border-bottom"
+             data-action="click->toggle-subcategory#toggle">
+            <i class="bi bi-caret-left align-self-center text-fd2048"></i>
+            <div class="d-flex gap-3 align-items-center my-3">
+                <h2 class="text-f46a79 category-header">{{ category.name }}</h2>
+                <img src="{{ asset('images/' ~ category.image.path) }}"
+                     alt="{{ category.image.alt }}"
+                     style="max-height: 50px">
+            </div>
+        </div>
+        {% for cat in category.children %}
+            <h3 class="text-f46a79">{{ cat.name }}</h3>
+            {% for subcat in cat.children %}
+                <a class="text-reset text-decoration-none" href="{{ path('show_category', {'slug': subcat.slug}) }}">
+                    <p class="category-link" style="margin-left: 10px;">{{ subcat.name }}</p>
+                </a>
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endfor %}

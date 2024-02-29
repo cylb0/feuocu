@@ -1,0 +1,176 @@
+{% block header %}
+
+<div class="container mx-auto my-3">
+    <div class="row align-items-center border-bottom mb-2">
+            <div class="col-12 col-md-8 justify-content-center align-items-center">
+            <div class="row">
+                {% set images = product.images %}
+                {% if images|length > 0 %}
+                    {% set image = images[0] %}
+                {% else %}
+                    {% set image = {path: 'products/default.png', alt: 'Image par defaut'} %}
+                {% endif %}
+                <img
+                        id="main-img"
+                        class="img-fluid max-height-400"
+                        src="{{ asset('images/' ~ image.path) }}"
+                        alt="{{ image.alt }}">
+            </div>
+            {% if images|length > 1 %}
+                <div class="row mt-3 ">
+                    <div class="slider w-75 w-md-50 mx-auto" id="slider">
+                        {% for image in images %}
+                            <img class="img-fluid max-height-100" src="{{ asset('images/' ~ image.path) }}" alt="{{ image.alt }}">
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-column align-items-start rounded bg-fd2048-light p-3">
+            <div class="row border-bottom pb-2">
+                <h1 id="product-title" class="mt-0 mb-1" data-product-id="{{ product.id }}">
+                    {{ product.name|capitalize }}
+                </h1>
+                <h1 class="h2">{{ product.category.name }}</h1>
+                <h3 class="mt-0 mb-1">
+                    <img
+                            src="{{ asset('images/' ~ product.brand.image.path)| imagine_filter('brand_logo') }}"
+                            alt="{{ product.brand.image.alt }}"
+                            style="height:40px;">
+                    <a class="brand-link text-decoration-none h4"
+                       href="{{ path('show_brand', {'slug': product.brand.slug}) }}">{{ product.brand.name }}</a>
+                </h3>
+            </div>
+
+            <div class="row d-flex align-items-center border-bottom mt-2 pb-2">
+                <div class="text-danger mb-1 me-2">
+                    {% include 'components/_starcomponent.html.twig' with {'note': product.rating} %}
+                    {% if product.rating %}
+                        <span>({{ product.rating }})</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="row d-flex align-items-center border-bottom mt-2 pb-2">
+                {% if product.feature1 is not null %}
+                    <p class="m-0"><strong><em>{{ product.feature1 }}</em></strong></p>
+                {% endif %}
+                {% if product.feature2 is not null %}
+                    <p class="m-0"><strong><em>{{ product.feature2 }}</em></strong></p>
+                {% endif %}
+                {% if product.feature3 is not null %}
+                    <p class="m-0"><strong><em>{{ product.feature3 }}</em></strong></p>
+                {% endif %}
+            </div>
+
+            {% if product.shortDescription %}
+            <div class="row border-bottom mt-2 pb-2">
+                <p class="text-start mt-1 mb-1">
+                    {{ product.shortDescription }}
+                </p>
+            </div>
+            {% endif %}
+
+            {% set variantsInStock = false %}
+            {% for variant in product.productVariants %}
+                {% if variant.stock > 0 %}
+                      {% set variantsInStock = true %}
+                {% endif %}
+            {% endfor %}
+            {% if product.productVariants|length > 0 and variantsInStock %}
+                <div class="container-fluid">
+                    <form class="mb-2" id="variations-cart_form" method="GET">
+                        <div class="row variations-cart_form_inputs border-bottom pb-2" data-controller="options" data-product-id="{{ product.id }}">
+                            <div class="d-flex justify-content-center spinner-div mt-2">
+                                <div class="spinner-border text-danger" role="status" data-options-target="spinner">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-2 pb-2">
+                            <div class="mb-1">
+                                {% if product.productVariants|length > 1 %}
+                                    <span id="priceRange">A partir de</span>
+                                {% endif %}
+                                {% if product.discount %}
+                                    {% if product.discount.type == 'percentage' %}
+                                        <div>
+                                            <span id="price" class="h3 text-fd2048">{{ (product.price * (100 - product.discount.value) / 100) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</span>
+                                            <span class="h5">TTC</span>
+                                        </div>
+                                        <div>
+                                            <span id="price-before" class="text-danger me-1"><s>{{ product.price | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</s></span>
+                                            <span class="text-fd2048">{{ '- ' ~ product.discount.value ~ '%' }}</span>
+                                        </div>
+                                    {% elseif product.discount.type == 'gross' %}
+                                        <div>
+                                            {% if product.price - product.discount.value > 0 %}
+                                                <span id="price" class="h3 text-fd2048">{{ (product.price - product.discount.value) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</span>
+                                            {% else %}
+                                                <span id="price" class="h3 text-fd2048">0€ OMG!</span>
+                                            {% endif %}
+                                            <span class="h5">TTC</span>
+                                        </div>
+                                        <div>
+                                            <span id="price-before" class="text-danger me-1"><s>{{ product.price | round(2) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</s></span>
+                                            <span class="text-fd2048">{{ '-' ~ product.discount.value | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</span>
+                                        </div>
+                                    {% endif %}
+                                {% else %}
+                                    <div>
+                                        <b><span id="price" class="h3 text-fd2048">{{ product.price | number_format(2, '.', ',') | format_currency('EUR', locale='fr')  }}</span></b>
+                                        <span class="h5">TTC</span>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="d-flex align-items-center gap-2 d-none" id="quantity-submit" data-controller="add-cart">
+                                <span class="fw-bold">Quantité</span>
+                                <input
+                                        class="width-50"
+                                        id="addtocart_quantity"
+                                        name="addtocart_quantity"
+                                        type="number"
+                                        step="1" value="1" min="1" max="99"
+                                        data-add-cart-target="quantityInput"
+                                        required>
+                                <button
+                                        class="btn bg-fd2048 text-white btn-sm"
+                                        data-mdb-ripple-duration = "0"
+                                        type="submit"
+                                        value="Ajouter au panier"
+                                        data-add-cart-target="submitButton"
+                                        data-action="add-cart#addToCart">
+                                    Ajouter au panier
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            {% else %}
+                <div>
+                    <i class="bi bi-dash-circle text-fd2048 me-2"></i><span class="text-fd2048">Indisponible</span>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if product.description %}
+    <div class="row">
+        <div class="col-12">
+            <h2 class="fw-bold underline-fd2048 mt-0">Description du produit</h2>
+            <div class="d-flex justify-content-center py-3 gap-3">
+                {% for feature in product.features %}
+                    <div class="d-flex flex-column text-center">
+                        <img class="mx-auto"
+                             src="{{ asset('images/' ~ feature.image.path) | imagine_filter('product_card') }}"
+                             alt="{{ feature.image.alt }}"
+                             style="width: 30px; height: 30px;">
+                        <div class="small">{{ feature.name }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <p class="text-start">{{ product.description }}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

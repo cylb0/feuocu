@@ -1,0 +1,34 @@
+{{ form_start(form) }}
+
+    {{ form_label(form.email) }}
+    {{ form_widget(form.email) }}
+
+    {{ form_label(form.password) }}
+    {{ form_widget(form.password) }}
+
+    {{ form_label(form.roles) }}
+    {{ form_widget(form.roles) }}
+
+    {{ form_label(form.first_name) }}
+    {{ form_widget(form.first_name) }}
+
+    {{ form_label(form.last_name) }}
+    {{ form_widget(form.last_name) }}
+
+    {{ form_label(form.birth) }}
+    {{ form_widget(form.birth) }}
+
+    {{ form_label(form.address) }}
+    {{ form_widget(form.address) }}
+
+    {{ form_label(form.zipcode) }}
+    {{ form_widget(form.zipcode) }}
+
+    {{ form_label(form.city) }}
+    {{ form_widget(form.city) }}
+
+    {{ form_label(form.phone) }}
+    {{ form_widget(form.phone) }}
+
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

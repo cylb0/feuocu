@@ -1,0 +1,15 @@
+<div class="row" id = "flash-messages">
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            {% if label == 'success' %}
+                <div class="alert alert-success">
+            {% elseif label == 'error'%}
+                <div class="alert alert-danger">
+            {% else %}
+                <div class="alert alert-info">
+            {% endif %}
+                    {{ message }}
+                </div>
+        {% endfor %}
+    {% endfor %}
+</div>

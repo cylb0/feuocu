@@ -1,0 +1,78 @@
+<?php //85f0a02ac2592b38b1f807199f3946bf
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            'sqlExecutor' => [
+                $o[1],
+            ],
+            'resultSetMapping' => [
+                $o[2],
+            ],
+            'parameterMappings' => [
+                [
+                    'ORMQueryBuilderLoader_getEntitiesByIds_id' => [
+                        0,
+                    ],
+                ],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT b0_.id AS id_0, b0_.name AS name_1, b0_.slug AS slug_2, b0_.image_id AS image_id_3 FROM brand b0_ WHERE b0_.id IN (?)',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'e' => 'App\\Entity\\Brand',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'name_1' => 'name',
+                    'slug_2' => 'slug',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'image_id_3' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'e' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'image_id_3' => 'image_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'e',
+                    'name_1' => 'e',
+                    'slug_2' => 'e',
+                    'image_id_3' => 'e',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Brand',
+                    'name_1' => 'App\\Entity\\Brand',
+                    'slug_2' => 'App\\Entity\\Brand',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

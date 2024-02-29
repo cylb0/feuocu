@@ -1,0 +1,89 @@
+{% extends 'basenav.html.twig' %}
+
+{% block title %}Modifier le profil{% endblock %}
+
+{% block body %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+        <div class="container my-3">
+            {% include 'components/_flashmessages.html.twig' %}
+
+            <div class="row mt-3 border-bottom">
+                <h1 class="text-center">Modifier mes informations personnelles</h1>
+            </div>
+
+            {{ form_start(form)}}
+
+            <div class="row py-3 border-bottom">
+                <h2 class="h4">État civil</h2>
+                <div class="col-6 col-md-4">
+                    <div class="form-control">{{ app.user.firstName }}</div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="form-control">{{ app.user.lastName }}</div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="form-control">{{ app.user.birth ? app.user.birth|date('d/m/Y') : '' }}</div>
+                </div>
+            </div>
+
+            <div class="row py-3 border-bottom">
+                <h2 class="h3">Contact</h2>
+                <div class="col-12 col-md-6">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                </div>
+                <div class="col-12 col-md-6">
+                    {{ form_label(form.emailConfirm) }}
+                    {{ form_widget(form.emailConfirm) }}
+                </div>
+                <div class="col-12 col-md-6 me-auto">
+                    {{ form_label(form.phone) }}
+                    {{ form_widget(form.phone) }}
+                </div>
+            </div>
+
+            <div class="row py-3 border-bottom">
+                <h2 class="h3">Adresse</h2>
+                <div class="col-12 col-md-6">
+                    {{ form_label(form.address) }}
+                    {{ form_widget(form.address) }}
+                </div>
+                <div class="col-6 col-md-3">
+                    {{ form_label(form.zipcode) }}
+                    {{ form_widget(form.zipcode) }}
+                </div>
+                <div class="col-6 col-md-3">
+                    {{ form_label(form.city) }}
+                    {{ form_widget(form.city) }}
+                </div>
+            </div>
+
+            <div class="row border-bottom">
+                {{ form_widget(form.submit) }}
+            </div>
+            {{ form_end(form) }}
+
+            <div class="row mt-3 text-center">
+                <ul class="list-unstyled d-flex flex-column gap-2">
+                    <li class="profile-link">
+                        <a class="text-reset text-decoration-none" href="{{ path('app_profile') }}">
+                            Retour au compte
+                        </a>
+                    </li>
+                    <li class="profile-link">
+                        <a class="text-reset text-decoration-none" href="{{ path('app_change_password') }}">
+                            Changer votre mot de passe
+                        </a>
+                    </li>
+                    <li class="profile-link">
+                        <a class="text-reset text-decoration-none fw-bolder" href="{{ path('app_logout') }}">
+                            Déconnexion
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Modifier une réduction{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>Modifier une réduction</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_discount_index') }}">Retour à la liste</a>
+    </div>
+    <div class="row py-3">
+        {{ include('discount/_form.html.twig', {'button_label': 'Modifier'}) }}
+    </div>
+{% endblock %}

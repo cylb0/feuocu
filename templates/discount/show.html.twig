@@ -1,0 +1,43 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Réduction{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>{{ discount.code }}</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_discount_index') }}">Retour à la liste</a>
+        <a href="{{ path('app_discount_edit', {'id': discount.id}) }}">Modifier</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ discount.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ discount.code }}</td>
+            </tr>
+            <tr>
+                <th>Type de réduction</th>
+                <td>{% if discount.type == 'percentage' %}
+                        Pourcentage
+                    {% elseif discount.type == 'gross' %}
+                        Remise brute
+                    {% endif %}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{% if discount.type == 'percentage' %}
+                        {{ discount.value ~ '%' }}
+                    {% elseif discount.type == 'gross' %}
+                        {{ discount.value ~ '€' }}
+                    {% endif %}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

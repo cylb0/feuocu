@@ -1,0 +1,71 @@
+<?php //4c1aa0cca47845051d39c60fb44a2c7b
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            'sqlExecutor' => [
+                $o[1],
+            ],
+            'resultSetMapping' => [
+                $o[2],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT f0_.id AS id_0, f0_.name AS name_1, f0_.slug AS slug_2, f0_.image_id AS image_id_3 FROM feature f0_',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'e' => 'App\\Entity\\Feature',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'name_1' => 'name',
+                    'slug_2' => 'slug',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'image_id_3' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'e' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'image_id_3' => 'image_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'e',
+                    'name_1' => 'e',
+                    'slug_2' => 'e',
+                    'image_id_3' => 'e',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Feature',
+                    'name_1' => 'App\\Entity\\Feature',
+                    'slug_2' => 'App\\Entity\\Feature',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

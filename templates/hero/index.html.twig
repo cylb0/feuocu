@@ -1,0 +1,48 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Bannière{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>Bannière</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_hero_new') }}">Ajouter une bannière</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bannière</th>
+                <th>Message de la bannière</th>
+                <th class="d-none d-md-table-cell">Message du bouton</th>
+                <th class="d-none d-md-table-cell">Lien</th>
+                <th>Actif</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for hero in heroes %}
+                <tr>
+                    <td>{{ hero.id }}</td>
+                    <td><img class="crud-thumbnail" src="{{ asset('images/' ~ hero.image.path) }}"></td>
+                    <td>{{ hero.message }}</td>
+                    <td class="d-none d-md-table-cell">{{ hero.buttonMessage }}</td>
+                    <td class="d-none d-md-table-cell">{{ hero.link }}</td>
+                    <td>{{ hero.isActive() ? 'Oui' : 'Non' }}</td>
+                    <td>
+                        <a href="{{ path('app_hero_show', {'id': hero.id}) }}">Voir</a>
+                        <a href="{{ path('app_hero_edit', {'id': hero.id}) }}">Modifier</a>
+                        {{ include('hero/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucune bannière trouvée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

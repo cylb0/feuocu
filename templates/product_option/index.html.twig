@@ -1,0 +1,42 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Types de variation{% endblock %}
+
+{% block body %}
+    <div class="row border-bottom py-3">
+        <h1>Types de variation</h1>
+    </div>
+    <div class="row border-bottom py-3">
+        <a href="{{ path('app_product_option_new') }}">Ajouter un nouveau type de variation</a>
+    </div>
+    <div class="row my-3">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Type de variation</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product_option in product_options %}
+                <tr>
+                    <td>{{ product_option.id }}</td>
+                    <td>{{ product_option.name }}</td>
+                    <td>{{ product_option.type == 'dropdown' ? 'Liste déroulante' : (product_option.type == 'color' ? 'Couleur' : '') }}</td>
+                    <td>
+                        <a href="{{ path('app_product_option_show', {'id': product_option.id}) }}">Voir</a>
+                        <a href="{{ path('app_product_option_edit', {'id': product_option.id}) }}">Modifier</a>
+                        {{ include('product_option/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucune variation trouvée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

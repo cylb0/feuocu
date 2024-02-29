@@ -1,0 +1,83 @@
+<?php
+
+namespace App\Repository;
+
+use App\Entity\ProductOptionValue;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
+/**
+ * @extends ServiceEntityRepository<ProductOptionValue>
+ *
+ * @method ProductOptionValue|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ProductOptionValue|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ProductOptionValue[]    findAll()
+ * @method ProductOptionValue[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class ProductOptionValueRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, ProductOptionValue::class);
+    }
+
+    public function save(ProductOptionValue $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(ProductOptionValue $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+
+
+    public function findUniqueValuesByOptionName($optionName, $productId): array
+    {
+        $qb = $this->createQueryBuilder('pov')
+            ->select('DISTINCT pov.value, pov.id, pov.hexacode')
+            ->leftJoin('App\Entity\ProductOption', 'po', 'WITH', 'pov.option = po')
+            ->leftJoin('App\Entity\ProductVariantOption', 'pvo', 'WITH', 'pvo.value = pov')
+            ->leftJoin('App\Entity\ProductVariant', 'pv', 'WITH', 'pvo.variant = pv')
+            ->where('po.name = :optionName')
+            ->andwhere('pv.product = :productId')
+            ->setParameter('optionName', $optionName)
+            ->setParameter('productId', $productId);
+
+        return $qb->getQuery()->getResult();
+    }
+
+//    /**
+//     * @return ProductOptionValue[] Returns an array of ProductOptionValue objects
+//     */
+//    public function findByExampleField($value): array
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->andWhere('p.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->orderBy('p.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
+
+//    public function findOneBySomeField($value): ?ProductOptionValue
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->andWhere('p.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
+}

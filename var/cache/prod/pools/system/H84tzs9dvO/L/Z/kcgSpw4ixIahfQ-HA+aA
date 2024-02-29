@@ -1,0 +1,81 @@
+<?php //d8f95d8d278959dd7348e78cb1536bbc
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            'sqlExecutor' => [
+                $o[1],
+            ],
+            'resultSetMapping' => [
+                $o[2],
+            ],
+            'parameterMappings' => [
+                [
+                    'prod' => [
+                        0,
+                    ],
+                ],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT p0_.id AS id_0, p0_.code AS code_1, p0_.stock AS stock_2, p0_.price AS price_3, p0_.product_id AS product_id_4 FROM product_variant p0_ WHERE p0_.product_id = ? AND p0_.stock > 0',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'pv' => 'App\\Entity\\ProductVariant',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'code_1' => 'code',
+                    'stock_2' => 'stock',
+                    'price_3' => 'price',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'product_id_4' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'pv' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'product_id_4' => 'product_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'pv',
+                    'code_1' => 'pv',
+                    'stock_2' => 'pv',
+                    'price_3' => 'pv',
+                    'product_id_4' => 'pv',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\ProductVariant',
+                    'code_1' => 'App\\Entity\\ProductVariant',
+                    'stock_2' => 'App\\Entity\\ProductVariant',
+                    'price_3' => 'App\\Entity\\ProductVariant',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

@@ -1,0 +1,226 @@
+<?php //App.Entity.Hero
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        (($f = &\Symfony\Component\VarExporter\Internal\Registry::$factories)['Symfony\\Component\\Validator\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::f('Symfony\\Component\\Validator\\Mapping\\ClassMetadata'))(),
+        ($f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::f('Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'))(),
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Validator\\Constraints\\Regex'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Regex')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Type'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Type')),
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Regex'],
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Length'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Length')),
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Url'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Url')),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Length'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\NotNull'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotNull')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Hero',
+                'message',
+                4 => 'button_message',
+                7 => 'link',
+                11 => 'image',
+                13 => 'active',
+            ],
+            'defaultGroup' => [
+                'Hero',
+            ],
+            'members' => [
+                [
+                    'message' => [
+                        $o[1],
+                    ],
+                    'button_message' => [
+                        $o[4],
+                    ],
+                    'link' => [
+                        $o[7],
+                    ],
+                    'image' => [
+                        $o[11],
+                    ],
+                    'active' => [
+                        $o[13],
+                    ],
+                ],
+            ],
+            'properties' => [
+                [
+                    'message' => $o[1],
+                    'button_message' => $o[4],
+                    'link' => $o[7],
+                    'image' => $o[11],
+                    'active' => $o[13],
+                ],
+            ],
+            'constraints' => [
+                1 => [
+                    $o[2],
+                    $o[3],
+                ],
+                4 => [
+                    $o[5],
+                    $o[6],
+                ],
+                7 => [
+                    $o[8],
+                    $o[9],
+                    $o[10],
+                ],
+                11 => [
+                    $o[12],
+                ],
+                13 => [
+                    $o[14],
+                    $o[15],
+                ],
+            ],
+            'constraintsByGroup' => [
+                1 => [
+                    'Default' => [
+                        $o[2],
+                        $o[3],
+                    ],
+                    'Hero' => [
+                        $o[2],
+                        $o[3],
+                    ],
+                ],
+                4 => [
+                    'Default' => [
+                        $o[5],
+                        $o[6],
+                    ],
+                    'Hero' => [
+                        $o[5],
+                        $o[6],
+                    ],
+                ],
+                7 => [
+                    'Default' => [
+                        $o[8],
+                        $o[9],
+                        $o[10],
+                    ],
+                    'Hero' => [
+                        $o[8],
+                        $o[9],
+                        $o[10],
+                    ],
+                ],
+                11 => [
+                    'Default' => [
+                        $o[12],
+                    ],
+                    'Hero' => [
+                        $o[12],
+                    ],
+                ],
+                13 => [
+                    'Default' => [
+                        $o[14],
+                        $o[15],
+                    ],
+                    'Hero' => [
+                        $o[14],
+                        $o[15],
+                    ],
+                ],
+            ],
+            'class' => [
+                1 => 'App\\Entity\\Hero',
+                4 => 'App\\Entity\\Hero',
+                7 => 'App\\Entity\\Hero',
+                11 => 'App\\Entity\\Hero',
+                13 => 'App\\Entity\\Hero',
+            ],
+            'property' => [
+                1 => 'message',
+                4 => 'button_message',
+                7 => 'link',
+                11 => 'image',
+                13 => 'active',
+            ],
+            'groups' => [
+                2 => [
+                    'Default',
+                    'Hero',
+                ],
+                [
+                    'Default',
+                    'Hero',
+                ],
+                5 => [
+                    'Default',
+                    'Hero',
+                ],
+                [
+                    'Default',
+                    'Hero',
+                ],
+                8 => [
+                    'Default',
+                    'Hero',
+                ],
+                [
+                    'Default',
+                    'Hero',
+                ],
+                [
+                    'Default',
+                    'Hero',
+                ],
+                12 => [
+                    'Default',
+                    'Hero',
+                ],
+                14 => [
+                    'Default',
+                    'Hero',
+                ],
+                [
+                    'Default',
+                    'Hero',
+                ],
+            ],
+            'message' => [
+                2 => 'Le message ne peut contenir que des chiffres, des lettres et . , ! ? \'',
+                5 => 'Le message ne peut contenir que des chiffres, des lettres et ".", ",", "!", "?", "\'"',
+                8 => 'Le lien doit être une URL valide.',
+            ],
+            'pattern' => [
+                2 => '/^[^<>;=#{}()*+]/u',
+                5 => '/^[^<>;=]*$/',
+            ],
+            'type' => [
+                3 => 'string',
+                9 => 'string',
+                12 => 'App\\Entity\\Image',
+                14 => 'bool',
+            ],
+            'maxMessage' => [
+                6 => 'Le message du bouton doit contenir au maximum 50 caractères.',
+            ],
+            'minMessage' => [
+                6 => 'Le message du bouton doit contenir au moins 3 caractères.',
+            ],
+            'max' => [
+                6 => 50,
+                10 => 255,
+            ],
+            'min' => [
+                6 => 3,
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

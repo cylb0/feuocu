@@ -1,0 +1,104 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>{{ product.name }}</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_product_index') }}">Retour à la liste</a>
+        <a href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ product.name }}</td>
+            </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ product.category.name }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ product.brand.name }}</td>
+            </tr>
+            <tr>
+                <th>Images</th>
+                <td>
+                    {% set images = product.images %}
+                    {% if images|length > 0 %}
+                        {% for image in images %}
+                            <img
+                                    class="crud-thumbnail"
+                                    src="{{ asset('images/' ~ image.path) }}"
+                                    alt="{{ image.alt }}">
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Caractéristiques</th>
+                <td class="d-flex gap-3">
+                    {% for feature in product.features %}
+                        <div class="d-flex flex-column text-center">
+                            <img class="mx-auto"
+                                    src="{{ asset('images/' ~ feature.image.path) }}"
+                                    alt="{{ feature.image.alt }}"
+                                    style="width: 40px; height: 40px;">
+                            <div>{{ feature.name }}</div>
+                        </div>
+                    {% endfor %}
+                </td>
+{#                <td>{{ product.features }}</td>#}
+            </tr>
+            <tr>
+                <th>Caractéristiques personnalisées</th>
+                <td>{% if product.feature1 %}
+                        {{ product.feature1 }}
+                    {% endif %}
+                    {% if product.feature2 %}
+                        {{ ', ' ~ product.feature2 }}
+                    {% endif %}
+                    {% if product.feature3 %}
+                        {{ ', ' ~ product.feature3 }}
+                    {% endif %}</td>
+            </tr>
+            <tr>
+                <th>Description courte</th>
+                <td>{{ product.shortDescription }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ product.price ~ '€' }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ product.rating ? product.rating ~ '/5' : '' }}</td>
+            </tr>
+            <tr>
+                <th>Ajouté le</th>
+                <td>{{ product.added.format('d-m-Y')|format }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ product.slug }}</td>
+            </tr>
+            <tr>
+                <th>EAN</th>
+                <td>{{ product.EAN }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

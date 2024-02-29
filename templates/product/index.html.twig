@@ -1,0 +1,74 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Produits{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>Produits</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_product_new') }}">Ajouter un nouveau produit</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th class="d-none d-md-table-cell">Catégorie</th>
+                <th>Marque</th>
+                <th>Images</th>
+                <th class="d-none d-md-table-cell">Description courte</th>
+                <th>Prix</th>
+                <th class="d-none d-md-table-cell">Note</th>
+                <th class="d-none d-md-table-cell">EAN</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                {% if product.productVariants|length == 0 %}
+                <td style="background-color: rgba(255, 0, 0, 0.5);">
+                    {{ product.name }}</td>
+                {% elseif product.isInStock %}
+                    <td style="background-color: rgba(0, 128, 0, 0.5);">
+                        {{ product.name }}</td>
+                {% else %}
+                    <td style="background-color: rgba(255, 255, 0, 0.5);">
+                        {{ product.name }}</td>
+                {% endif %}
+                <td class="d-none d-md-table-cell">{{ product.category.name }}</td>
+                <td>{{ product.brand.name }}</td>
+                <td>
+                    {% set images = product.images %}
+                    {% if images|length > 0 %}
+                        <img
+                                class="crud-thumbnail"
+                                src="{{ asset('images/' ~ images[0].path) }}"
+                                alt="{{ images[0].alt }}">
+                    {% endif %}
+                </td>
+                <td class="d-none d-md-table-cell">{{ product.shortDescription ? product.shortDescription|slice(0, 100) ~ '...' : '' }}</td>
+                <td>{{ product.price | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</td>
+                <td class="d-none d-md-table-cell">{{ product.rating ? product.rating ~ '/5' : 'pas de note' }}</td>
+                <td class="d-none d-md-table-cell">{{ product.EAN }}</td>
+                <td class="d-flex flex-column justify-content-center">
+                    <div class="d-flex gap-1">
+                        <a class="btn btn-info" href="{{ path('app_product_show', {'id': product.id}) }}">Voir</a>
+                        <a class="btn btn-warning" href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
+                    </div>
+                    {{ include('product/_delete_form.html.twig') }}
+                    <a class="btn btn-primary" href="{{ path('app_product_variants', {'id': product.id}) }}">Variants</a>
+                </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="17">Aucun produit trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

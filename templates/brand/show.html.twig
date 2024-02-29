@@ -1,0 +1,35 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Marques{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>{{ brand.name }}</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_brand_index') }}">Retour à la liste</a>
+        <a href="{{ path('app_brand_edit', {'id': brand.id}) }}">Modifier</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ brand.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ brand.name }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ brand.slug }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img class="crud-thumbnail" src="{{ asset('images/' ~ brand.image.path) }}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Nouvelle caractéristique{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>Ajouter une nouvelle caractéristique</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_feature_index') }}">Retour à la liste</a>
+    </div>
+    <div class="row py-3">
+        {{ include('feature/_form.html.twig') }}
+    </div>
+{% endblock %}

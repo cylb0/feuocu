@@ -1,0 +1,50 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>{{ category.name }}</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_category_index') }}">Retour à la liste</a>
+        <a href="{{ path('app_category_edit', {'id': category.id}) }}">Modifier</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ category.name }}</td>
+            </tr>
+            <tr>
+                <th>Catégorie mère</th>
+                <td>{{ category.parent.name is defined ? category.parent.name : '-' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    {% if category.image.path is defined %}
+                        <img
+                                class="crud-thumbnail"
+                                src="{{ asset('images/' ~ category.image.path) }}"
+                                alt="{{'logo' ~ category.name }}">
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ category.description }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ category.slug }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

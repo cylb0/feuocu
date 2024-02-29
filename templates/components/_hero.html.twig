@@ -1,0 +1,34 @@
+{% if hero and hero is not null %}
+    <div class="hero">
+        {% include 'components/_navbar.html.twig' %}
+        <img
+                class="hero-background img-fluid"
+                alt="{{ 'bannière du site ' ~ image.alt }}"
+                src="{{ asset('images/' ~ hero.image.path) }}">
+        <div class="hero-container">
+
+{#            Message d'erreur en cas de redirection si un malotru essaye d'accéder à l'admin#}
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-danger text-center">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            {% if hero.message is defined and hero.message is not null %}
+                <h1 class="hero-container_title text-md-xl text-sm-l">{{ hero.message }}</h1>
+            {% endif %}
+            {% if hero.link is defined and hero.link is not null %}
+                <a class="btn-fd2048 text-center d-inline-block rounded-pill fw-bold text-white p-2 mx-auto"
+                    href="{{ hero.link }}">
+                    {% if hero.buttonMessage %}
+                        {{ hero.buttonMessage }}
+                    {% else %}
+                        En savoir plus
+                    {% endif %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

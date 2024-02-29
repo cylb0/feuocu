@@ -1,0 +1,116 @@
+<?php //ffddfaf42a6727bc4fcad1c6ca94f32c
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            'sqlExecutor' => [
+                $o[1],
+            ],
+            'resultSetMapping' => [
+                $o[2],
+            ],
+            'parameterMappings' => [
+                [
+                    'query' => [
+                        0,
+                        1,
+                        2,
+                    ],
+                ],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT p0_.id AS id_0, p0_.name AS name_1, p0_.slug AS slug_2, p0_.short_description AS short_description_3, p0_.description AS description_4, p0_.price AS price_5, p0_.rating AS rating_6, p0_.ean AS ean_7, p0_.added AS added_8, p0_.feature1 AS feature1_9, p0_.feature2 AS feature2_10, p0_.feature3 AS feature3_11, p0_.simple_product AS simple_product_12, p0_.category_id AS category_id_13, p0_.brand_id AS brand_id_14, p0_.discount_id AS discount_id_15 FROM product p0_ LEFT JOIN category c1_ ON (c1_.id = p0_.category_id) LEFT JOIN brand b2_ ON (b2_.id = p0_.brand_id) WHERE p0_.name LIKE ? OR c1_.name LIKE ? OR b2_.name LIKE ?',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'p' => 'App\\Entity\\Product',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'name_1' => 'name',
+                    'slug_2' => 'slug',
+                    'short_description_3' => 'short_description',
+                    'description_4' => 'description',
+                    'price_5' => 'price',
+                    'rating_6' => 'rating',
+                    'ean_7' => 'EAN',
+                    'added_8' => 'added',
+                    'feature1_9' => 'feature1',
+                    'feature2_10' => 'feature2',
+                    'feature3_11' => 'feature3',
+                    'simple_product_12' => 'simpleProduct',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'category_id_13' => 'integer',
+                    'brand_id_14' => 'integer',
+                    'discount_id_15' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'p' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'category_id_13' => 'category_id',
+                    'brand_id_14' => 'brand_id',
+                    'discount_id_15' => 'discount_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'p',
+                    'name_1' => 'p',
+                    'slug_2' => 'p',
+                    'short_description_3' => 'p',
+                    'description_4' => 'p',
+                    'price_5' => 'p',
+                    'rating_6' => 'p',
+                    'ean_7' => 'p',
+                    'added_8' => 'p',
+                    'feature1_9' => 'p',
+                    'feature2_10' => 'p',
+                    'feature3_11' => 'p',
+                    'simple_product_12' => 'p',
+                    'category_id_13' => 'p',
+                    'brand_id_14' => 'p',
+                    'discount_id_15' => 'p',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Product',
+                    'name_1' => 'App\\Entity\\Product',
+                    'slug_2' => 'App\\Entity\\Product',
+                    'short_description_3' => 'App\\Entity\\Product',
+                    'description_4' => 'App\\Entity\\Product',
+                    'price_5' => 'App\\Entity\\Product',
+                    'rating_6' => 'App\\Entity\\Product',
+                    'ean_7' => 'App\\Entity\\Product',
+                    'added_8' => 'App\\Entity\\Product',
+                    'feature1_9' => 'App\\Entity\\Product',
+                    'feature2_10' => 'App\\Entity\\Product',
+                    'feature3_11' => 'App\\Entity\\Product',
+                    'simple_product_12' => 'App\\Entity\\Product',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

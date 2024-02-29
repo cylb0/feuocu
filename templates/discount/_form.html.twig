@@ -1,0 +1,13 @@
+{{ form_start(form) }}
+
+    {{ form_label(form.code) }}
+    {{ form_widget(form.code) }}
+
+    {{ form_label(form.type) }}
+    {{ form_widget(form.type) }}
+
+    {{ form_label(form.value) }}
+    {{ form_widget(form.value) }}
+
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

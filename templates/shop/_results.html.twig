@@ -1,0 +1,14 @@
+<div class="container my-3 mx-auto">
+    <div class="row">
+        <div class="col-12 mt-3">
+            {% if products %}
+                <h1 class="mx-auto">{{ products|length }} Résultat{{ products|length > 1 ? 's' : '' }}</h1>
+                {% for product in products %}
+                    {% include 'shop/_productcard.html.twig' with {'product': product} %}
+                {% endfor %}
+            {% else %}
+                <h1 class="mx-auto">Pas de résultats</h1>
+            {% endif %}
+        </div>
+    </div>
+</div>

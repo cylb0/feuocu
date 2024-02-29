@@ -1,0 +1,470 @@
+/*
+********** BODY **********
+ */
+html,body {
+  height: 100%;
+}
+/*
+********** BODY **********
+ */
+
+/*
+********** HEADER START **********
+ */
+.header-content {
+  max-width: 80%;
+}
+/*
+********** SEARCH BAR START **********
+ */
+.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-inline {
+  display: flex;
+  justify-content: center;
+}
+.form-control {
+  background-color: transparent;
+  margin-top: 0;
+}
+.form-control::placeholder {
+  color: dimgray;
+  font-size: small;
+}
+.form-group {
+  position: relative;
+}
+input[type="text"].form-control {
+  border: none;
+}
+.search-button {
+  background-color: transparent;
+  border: none;
+}
+.search-icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  /*background-color: white;*/
+  border: 2px solid white;
+}
+.search-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+/*
+********** SEARCH BAR END **********
+ */
+/*
+********** ICONS START **********
+ */
+.icon{
+  height: 100%;
+  width: 100px;
+}
+.icon:hover {
+  filter: invert(37%) sepia(84%) saturate(5772%) hue-rotate(335deg) brightness(96%) contrast(107%);
+}
+.icon-logo {
+  height: 2rem;
+  width: 2rem;
+}
+/*
+********** ICONS END **********
+ */
+/*
+********** HEADER END **********
+*/
+
+/*
+********** NAVBAR START **********
+*/
+#nav {
+  text-align: center;
+  width: 100%;
+  background-color: #f46a79;
+  left: 50%;
+  transform: translateX(-50%);
+}
+ul {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  gap:3em;
+}
+li a.nav-link {
+  font-size: 13px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: white !important;
+}
+li a.nav-link:hover {
+  color: #FD2048 !important;
+}
+/*
+********** NAVBAR END **********
+*/
+
+/*
+********** HERO START **********
+*/
+.hero {
+  height: 60vh;
+  overflow: hidden;
+  position: relative;
+}
+.hero-background {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  margin: auto;
+}
+.hero-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+.hero-container_title {
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+  max-width: 32ch;
+}
+.hero > #nav {
+  position: absolute;
+  text-align: center;
+  background: rgba(0,0,0,0.2);
+}
+/*
+********** HERO END **********
+ */
+
+/*
+********** INFOS START **********
+*/
+.infos-image {
+  width: 50px;
+  height: 50px;
+}
+/*
+********** INFOS END **********
+*/
+
+/*
+********** ARROW BUTTONS START **********
+ */
+.category-tree .arrow-button {
+  background-color: #ebb3a9;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  position: relative;
+  opacity: 0.8;
+}
+.category-tree .arrow-button:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%);
+  border-left: 10px solid #ebb3a9;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: 0.8;
+}
+.category-tree .col-auto:last-child .arrow-button {
+  background-color: #fd2048;
+}
+.category-tree .col-auto:last-child .arrow-button:after {
+  background-color: transparent;
+}
+/*
+********** ARROW BUTTONS END **********
+ */
+
+/*
+********** SLIDERCARD START **********
+*/
+.slick-prev:before, .slick-next:before {
+  color: red !important;
+}
+/*
+********** SLIDERCARD END **********
+*/
+
+/*
+********** PRODUCTCARD START **********
+*/
+.bg-image img {
+  max-height: 200px;
+  object-fit: cover;
+}
+.available-color {
+  width: 20px;
+  height: 20px;
+  border-radius:50%;
+}
+.brand-link {
+  color: lightgray;
+}
+.brand-link:hover {
+  color: #f46a79;
+}
+/*
+********** PRODUCTCARD END **********
+*/
+
+/*
+********** SIDECATEGORIES END **********
+*/
+.category-link:hover, .category-header:hover {
+  color: #fd2048;
+  transform: scale(1.1);
+}
+/*
+********** SIDECATEGORIES END **********
+*/
+
+/*
+********** FOOTER START **********
+*/
+.footer a {
+  text-decoration: none;
+  color:white;
+}
+.footer a:hover {
+  color: #403f3C;
+}
+/*
+********** FOOTER END **********
+*/
+
+/*
+********** CRUD START **********
+*/
+.crud-thumbnail-div {
+  width: 100px;
+}
+.crud-thumbnail {
+  width: 100px;
+}
+/*
+********** CRUD END **********
+*/
+
+/*
+********** LOGIN START **********
+ */
+.btn:hover {
+  transform: scale(1.1);
+  border: 1px solid #f46a79 !important;
+}
+/*
+********** LOGIN END **********
+ */
+
+/*
+********** REGISTER START **********
+*/
+label.required:after {
+  content: " *";
+  color: red;
+}
+/*
+********** REGISTER END **********
+*/
+
+/*
+********** PROFILE START **********
+ */
+.profile-link:hover {
+  transform: scale(1.1);
+}
+/*
+********** PROFILE END **********
+ */
+
+/*
+********** SLICK SLIDE **********
+*/
+.slick-slide {
+  margin: 0 5px;
+}
+/*
+********** SLICK SLIDE **********
+*/
+
+/*
+********** PAGES START **********
+ */
+.payment-icon {
+  max-height: 25px;
+}
+/*
+********** PAGES END **********
+ */
+
+/*
+********** ADMIN START **********
+ */
+.admin-sidebar-element a:hover {
+  color: lightgray !important;
+}
+.admin-icon {
+  max-height: 25px;
+}
+/*
+********** ADMIN END **********
+ */
+
+/*
+********** UTIL START **********
+*/
+.max-height-100 {
+  max-height: 100px;
+  object-fit: contain;
+}
+.max-height-400 {
+  min-height:400px;
+  max-height: 400px;
+  object-fit: contain;
+}
+.separator {
+  width: 90%;
+  margin-inline: auto;
+  height: 1px;
+  border: none;
+  background-color: black;
+}
+.width-50 {
+  width: 50px;
+}
+.hoverable-card:hover {
+  border: 1px solid rgba(253,32,72,0.1);
+}
+/*
+********** UTIL END **********
+*/
+
+@media screen and (max-width: 768px) {
+  .search-icon-circle {
+    width: 1.8rem;
+    height: 1.8rem;
+    border: none;
+  }
+  .search-icon {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+  .icon{
+    height: 100%;
+    width: 80px;
+  }
+  .icon-logo {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+/*
+********** FONTS START **********
+ */
+body {
+  font-family: 'Playfair Display SC', serif;
+}
+h2,h3,h4,h5 {
+  font-family: 'Raleway', sans-serif;
+}
+.category-header, h1, .h2, .option-name {
+  font-family: 'Lobster', cursive;
+}
+p,span {
+  font-family: 'Raleway', sans-serif;
+}
+
+/*
+********** FONTS START **********
+ */
+
+/*
+********** COLORS START **********
+*/
+.bg-fd2048 {
+  background-color: #fd2048 !important;
+  border: none !important;
+}
+.bg-fd2048-light {
+  background-color: rgba(253,32,72,0.1) !important;
+}
+.bg-f46a79 {
+  background-color: #f46a79 !important;
+  border: none !important;
+}
+.bg-f46a79-light {
+  background-color: rgba(244,106,121,0.1) !important;
+}
+.bg-f9b4bc {
+  background-color: #f9b4bc;
+  border: none !important;
+}
+.bg-ebb3a9 {
+  background-color: #ebb3a9 !important;
+  border: none !important;
+}
+.bg-ebb3a9-light {
+  background-color: rgba(235,179,169,0.1) !important;
+}
+
+.text-fd2048 {
+  color: #fd2048;
+}
+.text-f46a79 {
+  color: #f46a79;
+}
+.text-ebb3a9 {
+  color: #ebb3a9;
+}
+
+.btn-fd2048 {
+  background-color: #fd2048;
+  border: none;
+  text-decoration: none;
+}
+.btn-fd2048:hover {
+  background-color: #f46a79;
+}
+.btn-f9b4bc {
+  background-color: #f9b4bc;
+  border: none;
+  text-decoration: none;
+}
+.btn-f9b4bc:hover {
+  background-color: #f46a79;
+}
+
+.underline-fd2048 {
+  text-decoration: underline #fd2048;
+}
+.underline-f46a79 {
+  text-decoration: underline #f46a79;
+}
+.underline-ebb3a9 {
+  text-decoration: underline #ebb3a9;
+}
+/*
+********** COLORS END **********
+*/

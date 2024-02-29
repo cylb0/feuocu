@@ -1,0 +1,725 @@
+<?php //App.Entity.Product
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        (($f = &\Symfony\Component\VarExporter\Internal\Registry::$factories)['Symfony\\Component\\Validator\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::f('Symfony\\Component\\Validator\\Mapping\\ClassMetadata'))(),
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity')),
+        clone $p['Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity'],
+        ($f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::f('Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'))(),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\NotBlank'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotBlank')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Length'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Length')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Regex'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Regex')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Type'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Type')),
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\NotNull'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotNull')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Positive'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Positive')),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Range'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Range')),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\All'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\All')),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotNull'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotNull'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotNull'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotNull'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\All'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotNull'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotNull'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Length'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Length'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\All'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotNull'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\NotNull'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Length'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Length'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Length'],
+        $f['Symfony\\Component\\Validator\\Mapping\\PropertyMetadata'](),
+        clone $p['Symfony\\Component\\Validator\\Constraints\\Type'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'constraints' => [
+                [
+                    $o[1],
+                    $o[2],
+                ],
+                3 => [
+                    $o[4],
+                    $o[5],
+                    $o[6],
+                    $o[7],
+                ],
+                8 => [
+                    $o[9],
+                    $o[10],
+                    $o[11],
+                ],
+                12 => [
+                    $o[13],
+                    $o[14],
+                ],
+                15 => [
+                    $o[16],
+                ],
+                17 => [
+                    $o[18],
+                    $o[21],
+                    $o[22],
+                ],
+                [
+                    $o[19],
+                    $o[20],
+                ],
+                23 => [
+                    $o[24],
+                    $o[25],
+                ],
+                26 => [
+                    $o[27],
+                    $o[28],
+                ],
+                29 => [
+                    $o[30],
+                    $o[33],
+                    $o[34],
+                ],
+                [
+                    $o[31],
+                    $o[32],
+                ],
+                35 => [
+                    $o[36],
+                    $o[37],
+                ],
+                38 => [
+                    $o[39],
+                ],
+                40 => [
+                    $o[41],
+                    $o[42],
+                ],
+                43 => [
+                    $o[44],
+                ],
+                45 => [
+                    $o[46],
+                    $o[49],
+                    $o[50],
+                ],
+                [
+                    $o[47],
+                    $o[48],
+                ],
+                51 => [
+                    $o[52],
+                    $o[53],
+                ],
+                54 => [
+                    $o[55],
+                    $o[56],
+                ],
+                57 => [
+                    $o[58],
+                    $o[59],
+                ],
+                60 => [
+                    $o[61],
+                ],
+            ],
+            'constraintsByGroup' => [
+                [
+                    'Default' => [
+                        $o[1],
+                        $o[2],
+                    ],
+                    'Product' => [
+                        $o[1],
+                        $o[2],
+                    ],
+                ],
+                3 => [
+                    'Default' => [
+                        $o[4],
+                        $o[5],
+                        $o[6],
+                        $o[7],
+                    ],
+                    'Product' => [
+                        $o[4],
+                        $o[5],
+                        $o[6],
+                        $o[7],
+                    ],
+                ],
+                8 => [
+                    'Default' => [
+                        $o[9],
+                        $o[10],
+                        $o[11],
+                    ],
+                    'Product' => [
+                        $o[9],
+                        $o[10],
+                        $o[11],
+                    ],
+                ],
+                12 => [
+                    'Default' => [
+                        $o[13],
+                        $o[14],
+                    ],
+                    'Product' => [
+                        $o[13],
+                        $o[14],
+                    ],
+                ],
+                15 => [
+                    'Default' => [
+                        $o[16],
+                    ],
+                    'Product' => [
+                        $o[16],
+                    ],
+                ],
+                17 => [
+                    'Default' => [
+                        $o[18],
+                        $o[21],
+                        $o[22],
+                    ],
+                    'Product' => [
+                        $o[18],
+                        $o[21],
+                        $o[22],
+                    ],
+                ],
+                23 => [
+                    'Default' => [
+                        $o[24],
+                        $o[25],
+                    ],
+                    'Product' => [
+                        $o[24],
+                        $o[25],
+                    ],
+                ],
+                26 => [
+                    'Default' => [
+                        $o[27],
+                        $o[28],
+                    ],
+                    'Product' => [
+                        $o[27],
+                        $o[28],
+                    ],
+                ],
+                29 => [
+                    'Default' => [
+                        $o[30],
+                        $o[33],
+                        $o[34],
+                    ],
+                    'Product' => [
+                        $o[30],
+                        $o[33],
+                        $o[34],
+                    ],
+                ],
+                35 => [
+                    'Default' => [
+                        $o[36],
+                        $o[37],
+                    ],
+                    'Product' => [
+                        $o[36],
+                        $o[37],
+                    ],
+                ],
+                38 => [
+                    'Default' => [
+                        $o[39],
+                    ],
+                    'Product' => [
+                        $o[39],
+                    ],
+                ],
+                40 => [
+                    'Default' => [
+                        $o[41],
+                        $o[42],
+                    ],
+                    'Product' => [
+                        $o[41],
+                        $o[42],
+                    ],
+                ],
+                43 => [
+                    'Default' => [
+                        $o[44],
+                    ],
+                    'Product' => [
+                        $o[44],
+                    ],
+                ],
+                45 => [
+                    'Default' => [
+                        $o[46],
+                        $o[49],
+                        $o[50],
+                    ],
+                    'Product' => [
+                        $o[46],
+                        $o[49],
+                        $o[50],
+                    ],
+                ],
+                51 => [
+                    'Default' => [
+                        $o[52],
+                        $o[53],
+                    ],
+                    'Product' => [
+                        $o[52],
+                        $o[53],
+                    ],
+                ],
+                54 => [
+                    'Default' => [
+                        $o[55],
+                        $o[56],
+                    ],
+                    'Product' => [
+                        $o[55],
+                        $o[56],
+                    ],
+                ],
+                57 => [
+                    'Default' => [
+                        $o[58],
+                        $o[59],
+                    ],
+                    'Product' => [
+                        $o[58],
+                        $o[59],
+                    ],
+                ],
+                60 => [
+                    'Default' => [
+                        $o[61],
+                    ],
+                    'Product' => [
+                        $o[61],
+                    ],
+                ],
+            ],
+            'name' => [
+                'App\\Entity\\Product',
+                3 => 'name',
+                8 => 'price',
+                12 => 'rating',
+                15 => 'description',
+                17 => 'images',
+                23 => 'category',
+                26 => 'brand',
+                29 => 'productVariants',
+                35 => 'slug',
+                38 => 'discount',
+                40 => 'EAN',
+                43 => 'added',
+                45 => 'features',
+                51 => 'feature1',
+                54 => 'feature2',
+                57 => 'feature3',
+                60 => 'simpleProduct',
+            ],
+            'defaultGroup' => [
+                'Product',
+            ],
+            'members' => [
+                [
+                    'name' => [
+                        $o[3],
+                    ],
+                    'price' => [
+                        $o[8],
+                    ],
+                    'rating' => [
+                        $o[12],
+                    ],
+                    'description' => [
+                        $o[15],
+                    ],
+                    'images' => [
+                        $o[17],
+                    ],
+                    'category' => [
+                        $o[23],
+                    ],
+                    'brand' => [
+                        $o[26],
+                    ],
+                    'productVariants' => [
+                        $o[29],
+                    ],
+                    'slug' => [
+                        $o[35],
+                    ],
+                    'discount' => [
+                        $o[38],
+                    ],
+                    'EAN' => [
+                        $o[40],
+                    ],
+                    'added' => [
+                        $o[43],
+                    ],
+                    'features' => [
+                        $o[45],
+                    ],
+                    'feature1' => [
+                        $o[51],
+                    ],
+                    'feature2' => [
+                        $o[54],
+                    ],
+                    'feature3' => [
+                        $o[57],
+                    ],
+                    'simpleProduct' => [
+                        $o[60],
+                    ],
+                ],
+            ],
+            'properties' => [
+                [
+                    'name' => $o[3],
+                    'price' => $o[8],
+                    'rating' => $o[12],
+                    'description' => $o[15],
+                    'images' => $o[17],
+                    'category' => $o[23],
+                    'brand' => $o[26],
+                    'productVariants' => $o[29],
+                    'slug' => $o[35],
+                    'discount' => $o[38],
+                    'EAN' => $o[40],
+                    'added' => $o[43],
+                    'features' => $o[45],
+                    'feature1' => $o[51],
+                    'feature2' => $o[54],
+                    'feature3' => $o[57],
+                    'simpleProduct' => $o[60],
+                ],
+            ],
+            'groups' => [
+                1 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                4 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                9 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                13 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                16 => [
+                    'Default',
+                    'Product',
+                ],
+                18 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                24 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                27 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                30 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                36 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                39 => [
+                    'Default',
+                    'Product',
+                ],
+                41 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                44 => [
+                    'Default',
+                    'Product',
+                ],
+                46 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                52 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                55 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                58 => [
+                    'Default',
+                    'Product',
+                ],
+                [
+                    'Default',
+                    'Product',
+                ],
+                61 => [
+                    'Default',
+                    'Product',
+                ],
+            ],
+            'fields' => [
+                1 => 'name',
+                'slug',
+            ],
+            'class' => [
+                3 => 'App\\Entity\\Product',
+                8 => 'App\\Entity\\Product',
+                12 => 'App\\Entity\\Product',
+                15 => 'App\\Entity\\Product',
+                17 => 'App\\Entity\\Product',
+                23 => 'App\\Entity\\Product',
+                26 => 'App\\Entity\\Product',
+                29 => 'App\\Entity\\Product',
+                35 => 'App\\Entity\\Product',
+                38 => 'App\\Entity\\Product',
+                40 => 'App\\Entity\\Product',
+                43 => 'App\\Entity\\Product',
+                45 => 'App\\Entity\\Product',
+                51 => 'App\\Entity\\Product',
+                54 => 'App\\Entity\\Product',
+                57 => 'App\\Entity\\Product',
+                60 => 'App\\Entity\\Product',
+            ],
+            'property' => [
+                3 => 'name',
+                8 => 'price',
+                12 => 'rating',
+                15 => 'description',
+                17 => 'images',
+                23 => 'category',
+                26 => 'brand',
+                29 => 'productVariants',
+                35 => 'slug',
+                38 => 'discount',
+                40 => 'EAN',
+                43 => 'added',
+                45 => 'features',
+                51 => 'feature1',
+                54 => 'feature2',
+                57 => 'feature3',
+                60 => 'simpleProduct',
+            ],
+            'message' => [
+                4 => 'Le nom ne peut pas être vide.',
+                6 => 'Le nom ne peut contenir que des lettres, des chiffres et des espaces.',
+            ],
+            'maxMessage' => [
+                5 => 'Le nom est trop long, 255 caractères maximum',
+            ],
+            'minMessage' => [
+                5 => 'Le nom est trop court, 3 caractères minimum',
+            ],
+            'max' => [
+                5 => 255,
+                13 => 5,
+                37 => 50,
+                42 => 13,
+                53 => 255,
+                56 => 255,
+                59 => 255,
+            ],
+            'min' => [
+                5 => 3,
+                13 => 0,
+            ],
+            'pattern' => [
+                6 => '/^[A-Za-z0-9\\sÀ-ÿ]+$/',
+            ],
+            'type' => [
+                7 => 'string',
+                11 => 'float',
+                14 => 'float',
+                16 => 'string',
+                20 => 'App\\Entity\\Image',
+                'Doctrine\\Common\\Collections\\Collection',
+                24 => 'App\\Entity\\Category',
+                27 => 'App\\Entity\\Brand',
+                32 => 'App\\Entity\\ProductVariant',
+                'Doctrine\\Common\\Collections\\Collection',
+                36 => 'string',
+                39 => 'App\\Entity\\Discount',
+                41 => 'string',
+                44 => 'DateTimeImmutable',
+                48 => 'App\\Entity\\Feature',
+                'Doctrine\\Common\\Collections\\Collection',
+                52 => 'string',
+                55 => 'string',
+                58 => 'string',
+                61 => 'bool',
+            ],
+            'value' => [
+                10 => 0,
+            ],
+            'notInRangeMessage' => [
+                13 => 'La note doit être comprise entre 0 et 5.',
+            ],
+            'invalidMessage' => [
+                13 => 'Entrez un nombre',
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

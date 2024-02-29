@@ -1,0 +1,54 @@
+<footer class="footer container-fluid bg-fd2048 text-white px-3 py-4 ps-md-5">
+    <div class="row">
+        <p>
+            Des questions, Appelez le (+33) 6 69 69 69 69
+        </p>
+    </div>
+    <div class="row d-flex justify-content-between mb-3">
+        <div class="col-10 col-md-3 mx-auto">
+            <h5 class="mb-3">Service client</h5>
+            <ul class="list-unstyled d-block">
+                <li><a href="{{ path('app_delivery') }}">Livraison et discrétion</a></li>
+                <li><a href="{{ path('app_return') }}">Retours</a></li>
+                <li><a href="{{ path('app_payments') }}">Modes de paiement</a></li>
+            </ul>
+        </div>
+
+        <div class="col-10 col-md-3 mx-auto">
+            <h5 class="mb-3">A propos</h5>
+            <ul class="list-unstyled d-block">
+                <li><a href="{{ path('app_contact') }}">Contact</a></li>
+                <li><a href="{{ path('app_about') }}">A propos de nous</a></li>
+            </ul>
+        </div>
+
+        <div class="col-10 col-md-3 mx-auto">
+            <h5 class="mb-3">Fidélité</h5>
+            <ul class="list-unstyled d-block">
+                <li><a href="{{ path('app_gift') }}">Cartes cadeaux</a></li>
+                <li><a href="{{ path('app_profile') }}">Mon compte</a></li>
+            </ul>
+        </div>
+
+        <div class="col-10 col-md-3 mx-auto">
+            <h5 class="mb-3">Informations</h5>
+            <ul class="list-unstyled d-block">
+                <li><a href="{{ path('app_cgu') }}">Conditions générales</a></li>
+                <li><a href="{{ path('app_rgpd') }}">Mentions légales</a></li>
+                <li><a href="{{ path('app_faq') }}">FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 col-md-3 me-auto">
+            <img
+                    class="logo-image"
+                    src="{{ asset('images/logo_white.png') }}"
+                    alt="Logo Header"
+                    style="max-height: 60px;">
+            <p>
+                FeuOCul France
+            </p>
+        </div>
+    </div>
+</footer>

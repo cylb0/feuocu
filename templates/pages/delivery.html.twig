@@ -1,0 +1,58 @@
+{% extends 'basenav.html.twig' %}
+
+{% block title %}Livraison & Discretion{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 mx-auto my-3">
+                <div class="row">
+                    <h1>Livraison discrète</h1>
+                    <p>Chez FeuOcu, nous prenons la discrétion très au sérieux. Nous comprenons que la confidentialité est d'une importance vitale pour nos clients et nous mettons tout en œuvre pour assurer une livraison discrète de vos commandes. Dans cette page, nous allons vous expliquer en détail comment nous procédons pour garantir que votre commande arrive chez vous en toute discrétion.</p>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-lg-3">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="{{ asset('images/icons/mute.png') }}"
+                                alt="icone discretion"
+                                style="max-height: 50px;">
+                            <h2 class="text-center h4">Emballage discret</h2>
+                        </div>
+                        <p>Nous expédions toutes les commandes dans des emballages neutres et discrets, sans aucune mention de notre nom ou de notre marque. De cette façon, personne ne saura ce que vous avez commandé et de qui cela vient.</p>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <p>Nous travaillons avec des transporteurs de confiance qui respectent notre politique de discrétion et de confidentialité. Votre commande sera livrée directement à votre adresse de livraison, sans qu'il soit nécessaire de signer ou de fournir des informations personnelles.</p>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <h2 class="text-center h4">Livraison anonyme</h2>
+                            <img src="{{ asset('images/icons/incognito.png') }}"
+                                 alt="icone incognito"
+                                 style="max-height: 50px;">
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="{{ asset('images/icons/confidential.png') }}"
+                                 alt="icone secret"
+                                 style="max-height: 50px;">
+                            <h2 class="text-center h4">Informations de suivi</h2>
+                        </div>
+                        <p>Si vous choisissez de suivre votre commande en ligne, nous vous fournirons un numéro de suivi confidentiel qui ne contient aucune information sur la nature de votre commande ou de notre entreprise. Vous pouvez donc suivre l'acheminement de votre colis en toute discrétion.</p>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <p>Nous ne partagerons jamais vos informations personnelles avec des tiers, sauf dans le cas où cela est nécessaire pour expédier votre commande. Nous vous garantissons une confidentialité totale et un respect de votre vie privée à tout moment.</p>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <h2 class="text-center h4">Respect total de la vie privée</h2>
+                            <img src="{{ asset('images/icons/confidential.png') }}"
+                                 alt="icone confidentiel"
+                                 style="max-height: 50px;">
+                        </div>
+                    </div>
+                </div>
+                <p>Chez FeuOcu, nous sommes fiers de notre engagement envers la discrétion de livraison. Nous comprenons que la confidentialité est d'une importance vitale pour nos clients et nous sommes déterminés à vous offrir la meilleure expérience de livraison possible. Si vous avez des questions ou des préoccupations concernant la discrétion de livraison, n'hésitez pas à nous contacter. Nous sommes là pour vous aider.</p>
+            </div>
+        </div>
+    </div>
+
+    {% include 'components/_infos.html.twig' %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Modifier un produit{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>Modifier un produit</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_product_index') }}">Retour à la liste</a>
+    </div>
+    <div class="row py-3">
+        <div class="product-images d-flex flex-wrap gap-3">
+            {% set images = product.images %}
+            {% if images|length > 0 %}
+                {% for image in images %}
+                    <div class="crud-thumbnail-div position-relative"
+                         data-controller="admin-product-remove-image"
+                         data-product-id="{{ product.id }}"
+                         data-image-id="{{ image.id }}">
+                        <img
+                                class="img-fluid"
+                                src="{{ asset('images/' ~ image.path) }}"
+                                alt="{{ image.alt }}">
+                        <img
+                                class="position-absolute top-0 end-0"
+                                src="{{ asset('images/icons/remove.png') }}"
+                                alt="remove icon"
+                                data-admin-product-remove-image-target="removeIcon">
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row py-3 border-bottom">
+        {{ include('product/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Marques{% endblock %}
+
+{% block body %}
+    <div class="row border-bottom py-3">
+        <h1>Marques</h1>
+    </div>
+    <div class="row border-bottom py-3">
+        <a href="{{ path('app_brand_new') }}">Ajouter une marque</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th class="d-none d-md-table-cell">Slug</th>
+                    <th>Image</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for brand in brands %}
+                <tr>
+                    <td>{{ brand.id }}</td>
+                    <td>{{ brand.name }}</td>
+                    <td class="d-none d-md-table-cell">{{ brand.slug }}</td>
+                    <td>
+                        <img
+                            class="crud-thumbnail"
+                            src="{{ asset('images/' ~ brand.image.path) }}"
+                            alt="{{ brand.image.alt }}">
+                    </td>
+                    <td>
+                        <a href="{{ path('app_brand_show', {'id': brand.id}) }}">Voir</a>
+                        <a href="{{ path('app_brand_edit', {'id': brand.id}) }}">Modifier</a>
+                        {{ include('brand/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Aucune marque</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

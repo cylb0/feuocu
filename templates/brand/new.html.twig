@@ -1,0 +1,15 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Nouvelle marque{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>Ajouter une marque</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_brand_index') }}">Retour à la liste</a>
+    </div>
+    <div class="row py-3">
+        {{ include('brand/_form.html.twig') }}
+    </div>
+{% endblock %}

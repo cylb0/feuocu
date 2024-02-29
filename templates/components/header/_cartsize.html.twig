@@ -1,0 +1,13 @@
+<div
+    id="cart-count"
+    class="text-fd2048 fw-bold position-absolute top-50 start-50 translate-middle mt-1"
+    data-controller="cart-counter"
+    data-action="
+        add-cart:added@window->cart-counter#update
+        cart-quantity:updated@window->cart-counter#update
+        cart-delete:removed@window->cart-counter#update">
+    <div data-cart-counter-target="count"></div>
+    <div id="spinner-cart-counter-div" class="position-relative" data-cart-counter-target="spinner">
+        <div class="spinner-border text-danger" role="status"></div>
+    </div>
+</div>

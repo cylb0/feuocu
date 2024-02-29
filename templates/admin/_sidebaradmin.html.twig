@@ -1,0 +1,54 @@
+<div class="col-6 col-lg-2 d-none d-lg-block admin-sidebar border-end bg-dark shadow-lg p-3 position-fixed mx-auto"
+     style="height: 100vh; z-index: 999;"
+     data-admin-toggle-sidebar-target="sidebar">
+    <h2 class="small text-uppercase fw-bold text-white border-bottom border-light py-2">Contenu</h2>
+    <div class="admin-sidebar-element d-flex justify-content-start align-items-center gap-3 ps-3">
+        <img class="admin-icon" src="{{ asset('images/icons/folded-ribbon.png') }}" alt="icône bannière">
+        <a class="small text-white text-decoration-none h6 py-1" href="{{ path('app_hero_index') }}">Bannières</a>
+    </div>
+
+    <h2 class="small text-uppercase fw-bold text-white border-bottom border-light py-3">Options</h2>
+    <div class="admin-sidebar-element d-flex justify-content-start align-items-center gap-3 ps-3">
+        <img class="admin-icon" src="{{ asset('images/icons/options.png') }}" alt="icône variations">
+        <a class="small text-white text-decoration-none h6 py-1" href="{{ path('app_product_option_index') }}">Types</a>
+    </div>
+    <div class="admin-sidebar-element d-flex justify-content-start align-items-center gap-3 ps-3">
+        <img class="admin-icon" src="{{ asset('images/icons/choose.png') }}" alt="icône type d'option">
+        <a class="small text-white text-decoration-none h6 py-1" href="{{ path('app_product_option_value_index') }}">Variations</a>
+    </div>
+    <div class="admin-sidebar-element d-flex justify-content-start align-items-center gap-3 ps-3">
+        <img class="admin-icon" src="{{ asset('images/icons/choice.png') }}" alt="icône caractéristiques">
+        <a class="small text-white text-decoration-none h6 py-1" href="{{ path('app_feature_index') }}">Caractéristiques</a>
+    </div>
+
+    <h2 class="small text-uppercase fw-bold text-white border-bottom border-light py-3">Produits</h2>
+    <div class="admin-sidebar-element d-flex justify-content-start align-items-center gap-3 ps-3">
+        <img class="admin-icon" src="{{ asset('images/icons/brand.png') }}" alt="icône marque">
+        <a class="small text-white text-decoration-none h6 py-1" href="{{ path('app_brand_index') }}">Marques</a>
+    </div>
+    <div class="admin-sidebar-element d-flex justify-content-start align-items-center gap-3 ps-3">
+        <img class="admin-icon" src="{{ asset('images/icons/category.png') }}" alt="icône catégories">
+        <a class="small text-white text-decoration-none h6 py-1" href="{{ path('app_category_index') }}">Catégories</a>
+    </div>
+    <div class="admin-sidebar-element d-flex justify-content-start align-items-center gap-3 ps-3">
+        <img class="admin-icon" src="{{ asset('images/icons/add-product.png') }}" alt="icône produits">
+        <a class="small text-white text-decoration-none h6 py-1" href="{{ path('app_product_index') }}">Articles</a>
+    </div>
+    <div class="admin-sidebar-element d-flex justify-content-start align-items-center gap-3 ps-3">
+        <img class="admin-icon" src="{{ asset('images/icons/coupon.png') }}" alt="icône réductions">
+        <a class="small text-white text-decoration-none h6 py-1" href="{{ path('app_discount_index') }}">Réductions</a>
+    </div>
+
+    <h2 class="small text-uppercase fw-bold text-white border-bottom border-light py-3">Utilisateurs</h2>
+    <div class="admin-sidebar-element d-flex justify-content-start align-items-center gap-3 ps-3">
+        <img class="admin-icon" src="{{ asset('images/icons/group.png') }}" alt="icône utilisateurs">
+        <a class="small text-white text-decoration-none h6 py-3" href="{{ path('app_user_index') }}">Comptes</a>
+    </div>
+</div>
+
+<div id="admin-sidebar-overlay"
+     class="position-fixed d-none top-0 start-0 w-100 h-100 bg-white opacity-50"
+     data-admin-toggle-sidebar-target="mask"
+     data-action="click->admin-toggle-sidebar#toggle"
+     style="z-index: 998;">
+</div>

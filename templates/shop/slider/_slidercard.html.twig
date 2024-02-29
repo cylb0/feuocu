@@ -1,0 +1,85 @@
+<div class="hoverable-card text-white rounded d-flex flex-column justify-content-around p-1 pb-3"
+     style="height: 450px;">
+
+    <div class="p-0 mx-auto overflow-hidden rounded-3 h-50 position-relative"
+        style="height: 200px;">
+        {% set images = product.images %}
+        {% if images|length > 0 %}
+            {% set image = images[0] %}
+        {% else %}
+            {% set image = {path: 'products/default.png', alt: 'Image par defaut'} %}
+        {% endif %}
+        <img
+            class="w-100 h100"
+            src="{{ asset('images/' ~ image.path) | imagine_filter('small') }}"
+            alt="{{ image.alt }}"
+            style="height: 100%;">
+
+        {% if product.discount %}
+            <div class="position-absolute top-0 start-0 mt-1 ms-1 bg-fd2048 text-white small fw-bold rounded-3 p-1">
+                {% if product.discount.type == 'percentage' %}
+                    {{ '-' ~ product.discount.value ~ '%' }}
+                {% else %}
+                    {{ '-' ~ product.discount.value ~ '€' }}
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if product.added|isNew() %}
+            <div class="position-absolute top-0 end-0 mt-1 me-1 bg-success text-white small fw-bold rounded-3 p-1">
+                NEW
+            </div>
+        {% endif %}
+
+    </div>
+    <div class="d-flex flex-column justify-content-end my-3 mx-auto position-relative rounded h-50 flex-shrink-1"
+         style="height: 200px;">
+        <div class="text-danger mb-1 me-2 text-center">
+            {% include 'components/_starcomponent.html.twig' with {'note': product.rating} %}
+        </div>
+        <span class="fw-bolder text-black text-center small">
+            {{ product.name|capitalize }}
+        </span>
+        <span class="text-muted text-center mb-1 small">
+            {{ product.brand.name }}
+        </span>
+        <div class="d-flex flex-column text-center">
+            {% if product.productVariants|length > 0 and product.isInStock %}
+                {% if product.productVariants|length > 1 %}
+                    <span class="text-black">
+                        A partir de
+                    </span>
+                {% endif %}
+                {% if not product.discount %}
+                <span class="fw-bold text-black">
+                    {{ product.price|round(2) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}
+                </span>
+                {% endif %}
+                {% if product.discount %}
+                <div>
+                    <span class="text-black text-decoration-line-through">{{ product.price | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}</span>
+                    <span class="text-fd2048 fw-bolder">
+                        {% if product.discount.type == 'percentage' %}
+                        &nbsp;  {{ (product.price * (100 - product.discount.value) / 100) | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}
+                        {% elseif product.discount.type == 'gross' %}
+                            {% set totalPrice = product.price - product.discount.value %}
+                                {% if totalPrice < 0 %}
+                                    {% set totalPrice = 0 %}
+                                {% endif %}
+                            &nbsp;  {{ totalPrice | number_format(2, '.', ',') | format_currency('EUR', locale='fr') }}
+                        {% endif %}
+                    </span>
+                </div>
+                {% endif %}
+            {% else %}
+                <span class="text-fd2048 fw-bolder">
+                    Indisponible
+                </span>
+            {% endif %}
+
+            <a class="text-center link-text mt-3 btn-f9b4bc rounded-pill fw-bold text-white py-2" href="{{ path('show_product', {'slug': product.slug}) }}">
+                Voir plus
+            </a>
+        </div>
+    </div>
+</div>

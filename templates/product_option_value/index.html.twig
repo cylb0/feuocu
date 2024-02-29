@@ -1,0 +1,49 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Variations{% endblock %}
+
+{% block body %}
+    <div class="row py-3 border-bottom">
+        <h1>Variations</h1>
+    </div>
+    <div class="row py-3 border-bottom">
+        <a href="{{ path('app_product_option_value_new') }}">Ajouter une nouvelle variation</a>
+    </div>
+    <div class="row py-3">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th class="d-none d-md-table-cell">Type de variation</th>
+                <th>Nom de la variation</th>
+                <th>Couleur</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product_option_value in product_option_values %}
+                <tr>
+                    <td>{{ product_option_value.id }}</td>
+                    <td class="d-none d-md-table-cell">{{ product_option_value.option }}</td>
+                    <td>{{ product_option_value.value }}</td>
+                    <td>{% if product_option_value.hexacode %}
+                            <span style="display: block; width: 25%; height: 100%; border: 1px solid lightgray; background-color: {{ product_option_value.hexacode }}">&nbsp;</span>
+                        {% else %}
+                            Pas une couleur
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ path('app_product_option_value_show', {'id': product_option_value.id}) }}">Voir</a>
+                        <a href="{{ path('app_product_option_value_edit', {'id': product_option_value.id}) }}">Modifier</a>
+                        {{ include('product_option_value/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Pas de variations trouvées</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

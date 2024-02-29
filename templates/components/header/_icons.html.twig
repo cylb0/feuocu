@@ -1,0 +1,36 @@
+<div class="icons ms-auto d-none d-md-flex justify-content-end gap-0">
+    {% if app.user %}
+        <a href="{{ path('app_profile') }}" class="icon d-flex flex-column align-items-center text-decoration-none">
+            <img
+                class="icon-logo img-fluid"
+                alt="icône profil"
+                src="{{ asset('images/icons/user.png') }}">
+            <div class="text-white smaller mt-3 d-none d-md-block">Mon profil</div>
+        </a>
+        <a href="{{ path('app_logout') }}" class="icon d-flex flex-column align-items-center text-decoration-none">
+            <img
+                class="icon-logo img-fluid"
+                alt="icône déconnexion"
+                src="{{ asset('images/icons/logout.png') }}">
+            <div class="text-white smaller mt-3 d-none d-md-block">Déconnexion</div>
+        </a>
+    {% else %}
+        <a href="{{ path('app_login') }}" class="icon d-flex flex-column align-items-center text-decoration-none">
+            <img
+                class="icon-logo"
+                alt="icône connexion"
+                src="{{ asset('images/icons/login.png') }}">
+            <div class="text-white smaller mt-3 d-none d-md-block">Connexion</div>
+        </a>
+    {% endif %}
+    <a href="{{ path('app_cart') }}" id="basket" class="icon d-flex flex-column align-items-center text-decoration-none">
+        <div class="position-relative">
+            <img
+                class="icon-logo"
+                alt="icône panier"
+                src="{{ asset('images/icons/cart.png') }}">
+            {% include './components/header/_cartsize.html.twig' %}
+        </div>
+        <div class="text-white smaller mt-3 d-none d-md-block">Panier</div>
+    </a>
+</div>

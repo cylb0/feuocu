@@ -1,0 +1,83 @@
+<div class="row my-3" data-variant="{{ item.variant.id }}" style="height: 100px;" data-controller="cart-quantity cart-delete">
+    <div class="col-3 d-flex align-items-center justify-content-center" style="height: 100%;">
+        {% set images = item.variant.product.images %}
+        {% if images|length > 0 %}
+            {% set image = images[0] %}
+        {% else %}
+            {% set image = {path: 'products/default.png', alt: 'Image default'} %}
+        {% endif %}
+        <img
+            src="{{ asset('images/' ~ image.path) }}"
+            alt="{{ image.alt }}"
+            style="height: 100%;"/>
+    </div>
+    <div class="col-3 col-md-4">
+        <a class="text-reset text-decoration-none fw-bold" href="{{ path('show_product', {'slug': item.variant.product.slug}) }}">
+            <p class="mb-0">{{ item.variant.product.name|capitalize }}</p>
+        </a>
+        {% if item.variant.product.discount %}
+            {% if item.variant.product.discount.type == 'percentage' %}
+                <div>
+                    <span
+                            class="fw-bold"
+                            data-cart-quantity-target="price">{{ ((item.variant.product.price + item.variant.price) * (100 - item.variant.product.discount.value) / 100)|number_format(2, '.', '')}}</span>
+                    <span class="fw-bold">€</span>
+                </div>
+                <div>
+                    <span><s>{{ (item.variant.product.price + item.variant.price) ~ '€'}}</s></span>
+                    <span class="text-fd2048">{{ '(-' ~ item.variant.product.discount.value ~ '%)' }}</span>
+                </div>
+            {% else %}
+                <div>
+                    {% set totalPrice = item.variant.product.price + item.variant.price - item.variant.product.discount.value %}
+                    {% if totalPrice < 0 %}
+                        {% set totalPrice = 0 %}
+                    {% endif %}
+                    <span class="fw-bold price" data-cart-quantity-target="price">{{ totalPrice }}</span>
+                    <span class="fw-bold">€</span>
+                </div>
+                <div>
+                    <span><s>{{ (item.variant.product.price + item.variant.price) ~ '€' }}</s></span>
+                    <span class="text-fd2048">{{ '(-' ~ item.variant.product.discount.value ~ '€)' }}</span>
+                </div>
+            {% endif %}
+        {% else %}
+            <span
+                    class="fw-bold price"
+                    data-cart-quantity-target="price">{{ (item.variant.product.price + item.variant.price)}}</span>
+            <span class="fw-bold">€</span>
+        {% endif %}
+        <p>
+            {% for productVariantOption in item.variant.productVariantOptions %}
+                {{ productVariantOption.value}}
+                {% if not loop.last %}
+                    -
+                {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+    <div class="col-3 col-md-2">
+        <input
+                name="cart_item_quantity"
+                type="number"
+                step="1"
+                value="{{ item.quantity }}"
+                min="1" max="{{ item.variant.stock }}" required
+                data-action="cart-quantity#update"
+                data-cart-quantity-target="quantityInput">
+    </div>
+    <div class="col-2">
+        <span
+                id="{{ 'cart-total_' ~ item.variant.id }}"
+                class="fw-bold"
+                data-cart-quantity-target="totalItem"
+                data-cart-total-target="totalItem">
+        </span>
+        <span class="fw-bold">€</span>
+    </div>
+    <div class="col-1">
+        <button class="bg-transparent border-0">
+            <i class="bi bi-trash"></i>
+        </button>
+    </div>
+</div>

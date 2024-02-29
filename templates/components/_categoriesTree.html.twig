@@ -1,0 +1,18 @@
+<div class="category-tree row d-flex ms-1 mb-3">
+
+    {% for category in tree %}
+    <div class="col-auto px-0">
+        <a class="arrow-button" href="{{ path('show_category', {'slug': category.slug}) }}">
+            {{ category.name }}
+{#                <button class="arrow-button">{{ category.name }}</button>#}
+        </a>
+    </div>
+    {% endfor %}
+
+        <div class="col-auto px-0">
+            <a class="arrow-button" href="{{ path('show_category', {'slug': category.slug}) }}">
+                {{ category.name }}
+{#                        <button class="arrow-button">{{ category.name }}</button>#}
+            </a>
+        </div>
+</div>
